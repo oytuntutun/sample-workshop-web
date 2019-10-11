@@ -1,0 +1,8 @@
+export { default as Login } from './Login/Login'
+export { default as DashBoard } from './dashboard/DashBoard'
+export { default as AdminPage } from './adminPage/AdminPage'
+export { default as AdminNavigationPanel } from './adminPage/AdminNavigationPanel'
+export { default as Marinas } from './adminPage/Marinas'
+export { default as Agencies } from './adminPage/Agencies'
+export { default as Maintainers } from './adminPage/Maintainers'
+export { default as Register } from './Register'

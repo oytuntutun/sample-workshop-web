@@ -1,0 +1,38 @@
+.admin-navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 30px;
+}
+
+.admin-navigation-container {
+  max-width: 250px;
+  min-width: 150px;
+  height: 100vh;
+
+}
+
+.admin-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.marina-admin-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px
+}
+.marina-admin-form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.marina-admin-form h4 {
+  margin: 5px 0
+}
+
+.marina-admin-form button {
+  margin-top: 20px
+}

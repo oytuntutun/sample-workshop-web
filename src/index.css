@@ -9,5 +9,17 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    monospace
+}
+
+h2 {
+  margin: 0
+}
+
+Button {
+  outline: none
+}
+
+p {
+  margin: 3px
 }

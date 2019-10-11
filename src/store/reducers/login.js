@@ -1,0 +1,35 @@
+const user = (state = {}, action) => {
+  switch (action.type) {
+    case 'SET_INITIAL':
+      return { loading: false, isAuth: false }
+
+
+    case 'LOGIN_STARTED':
+      return { loading: true, user: null, isAuth: false }
+
+    case 'LOGIN_FAILED':
+      return {
+        loading: false,
+        error: action.payload,
+        isAuth: false,
+        loginAttempt: false
+      }
+
+    case 'LOGIN_SUCCESSFUL':
+      return {
+        ...state,
+        user: action.payload,
+        loading: false,
+        isAuth: true,
+        role: action.payload.role
+      }
+
+    case 'LOGOUT':
+      return {}
+
+    default:
+      return state
+  }
+}
+
+export default user
