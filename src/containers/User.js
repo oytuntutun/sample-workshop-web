@@ -12,7 +12,10 @@ class MainNavigation extends Component {
   }
 
   render() {
-const { admin } = this.props
+    // if server has admin role enable to enable
+    // admin dashboard pass admin={admin} to dashboard
+    // const { admin } = this.props
+
     return (
       <main>
         <Switch>

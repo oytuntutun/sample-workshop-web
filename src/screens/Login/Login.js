@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 
 import { login, loginSuccessful, setInitial } from '../../store/actions/user/user'
-import { Loader } from '../../components'
 
 import '../../styles/login.css'
 
@@ -45,11 +44,11 @@ class Login extends React.Component {
     const { login } = this.props
 
     const res = await login({ email, password })
+    console.log(res)
   }
 
   render() {
     const { email, password, disabled } = this.state
-    const { user } = this.props.state
     const { newUser } = this.props
     console.log(this.state)
     if(this.props.loading) {

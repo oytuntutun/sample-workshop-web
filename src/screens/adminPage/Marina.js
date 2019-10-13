@@ -33,6 +33,8 @@ class Marina extends React.Component {
       _id,
       token: localStorage.getItem('token')
     })
+
+    console.log(res)
   }
 
   render() {

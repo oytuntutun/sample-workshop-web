@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { logout, saveInformation } from '../../../store/actions/user/user'
+import { saveInformation } from '../../../store/actions/user/user'
 
 class BasicInfo extends React.Component {
   state = {
@@ -12,13 +12,11 @@ class BasicInfo extends React.Component {
   }
 
   saveInformation = () => {
-    const { user } = this.props.state.user
     const { name } = this.state
     this.props.saveInformation({name})
   }
 
   render () {
-    const { user } = this.props.state.user
     console.log('dsaldkjhask',this.props)
     return (
       <div className='basic-info-container'>

@@ -12,6 +12,10 @@ const Navigator = (props) => {
   const { user } = props
   const { loading } = props.user
 
+  if(loading) {
+    return <Loader />
+  }
+
   if(user.role === 'admin') {
     return <AdminPanel />
   }

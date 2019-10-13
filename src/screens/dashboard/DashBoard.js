@@ -3,7 +3,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { logout } from '../../store/actions/user/user'
 
-import { Link } from 'react-router-dom'
 import Header from './Header'
 
 import { Experiences }  from './components'
@@ -30,8 +29,7 @@ handleSection = (e) => {
 
   render () {
     const { loading } = this.props.state
-    const { user } = this.props.state.user
-    
+
     if(loading) {
       return <div>loading</div>
     }
@@ -46,7 +44,6 @@ handleSection = (e) => {
 
 
 const mapStateToProps = state => {
-  console.log('app state', state.user)
   return { state: state.user }
 }
 

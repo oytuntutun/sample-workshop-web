@@ -18,9 +18,8 @@ const user = (state = {}, action) => {
     case 'START_REQUEST':
       return {
         ...state,
-        user: {...action.payload.payload, ...state},
+        user: {...state.user, ...action.payload.payload},
         loading: false,
-
       }
 
     case 'LOGIN_SUCCESSFUL':

@@ -43,6 +43,7 @@ class Marinas extends React.Component {
       marinaSubscription,
       token
      })
+     console.log(res)
     getMarinas()
   }
 
@@ -51,12 +52,14 @@ class Marinas extends React.Component {
     const { token } = localStorage.getItem('token')
 
     const res = await getMarinas({ token })
+    console.log(res)
   }
 
   deleteMarina = async ( _id ) => {
     const { deleteMarina, getMarinas } = this.props
     const { token } = localStorage.getItem('token')
     const res = await deleteMarina({data: _id, token })
+    console.log(res)
     getMarinas()
   }
 

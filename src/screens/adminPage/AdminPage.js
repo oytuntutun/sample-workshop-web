@@ -3,8 +3,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { logout } from '../../store/actions/user/user'
 
-import { Link } from 'react-router-dom'
-
 import '../../styles/adminpage.css'
 
 class AdminPage extends React.Component {

@@ -3,8 +3,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { logout } from '../../store/actions/user/user'
 
-import { Link } from 'react-router-dom'
-
 import { BasicInfo } from './components'
 
 import '../../styles/header.css'
@@ -23,7 +21,7 @@ handleLogout = () => {
   render () {
     const { editing } = this.state
     const { user } = this.props.state
-    console.log('jheadear',this.props)
+    console.log('jheadear',this.props.state)
     return (
       <div>
         <div className='header-wrapper'>
