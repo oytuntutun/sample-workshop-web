@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Api from '../../../lib/api'
 
 export const login = payload => {
   return dispatch => {
@@ -19,6 +20,18 @@ export const login = payload => {
         console.log('error',err)
         dispatch(loginFailed(err))
       })
+  }
+}
+
+export const saveInformation = payload => {
+  return async dispatch => {
+    const res = await Api.put('/data/add',  payload)
+    if (!res) return
+
+    dispatch({
+      type: 'START_REQUEST',
+      payload
+    })
   }
 }
 

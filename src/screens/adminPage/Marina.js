@@ -3,8 +3,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateMarina } from '../../store/actions/marinas'
 
-import { Button, Input, Container, MarinaCard } from '../../components'
-
 class Marina extends React.Component {
   state = {
     editing: false,
@@ -49,9 +47,9 @@ class Marina extends React.Component {
     } = this.state.marina
     console.log('localdata', this.state.marina)
     return (
-      <MarinaCard>
+      <div>
         {!editing ?
-          <Container flexDir='column'>
+          <div flexDir='column'>
             <p>Name: {marina.marinaName}</p>
             <p>Phone: {marina.marinaPhone}</p>
             <p>Coords: {marina.marinaCoords}</p>
@@ -61,42 +59,42 @@ class Marina extends React.Component {
               ? <p>subscribed</p>
               : <p>notSubscribed</p>
             }
-          </Container>
+          </div>
           :
-          <Container flexDir='column'>
+          <div flexDir='column'>
             <p>Name:
-              <Input
+              <input
                 onChange={(e) => this.setState({marina: {...marina, marinaName: e.target.value}})}
                 value={marinaName}
               />
             </p>
 
-            <Input
+            <input
               onChange={(e) => this.setState({marina: {...marina, marinaCoords: e.target.value}})}
               value={marinaCoords}
             />
-          <Input
+          <input
               onChange={(e) => this.setState({marina: {...marina, marinaPhone: e.target.value}})}
               value={marinaPhone}
             />
-          <Input
+          <input
               onChange={(e) => this.setState({marina: {...marina, marinaLocation: e.target.value}})}
               value={marinaLocation}
             />
-          <Input
+          <input
               onChange={(e) => this.setState({marina: {...marina, marinaVHF: e.target.value}})}
               value={marinaVHF}
             />
-            <Button onClick={this.updateMarina}>Save</Button>
+          <button onClick={this.updateMarina}>Save</button>
 
-          </Container>
+          </div>
 
         }
-        <Button onClick={() => this.setState({ editing: !editing})}>
+        <button onClick={() => this.setState({ editing: !editing})}>
           {!editing ? 'Edit' : 'Cancel Editing' }
-        </Button>
-        <Button color='red' onClick={()=>deleteMarina(x._id)}>delete</Button>
-      </MarinaCard>
+        </button>
+        <button color='red' onClick={()=>deleteMarina(x._id)}>delete</button>
+      </div>
     )
 }
 }

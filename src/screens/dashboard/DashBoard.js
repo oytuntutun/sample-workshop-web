@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import { logout } from '../../store/actions/user/user'
 
 import { Link } from 'react-router-dom'
-import AgencyList from './AgencyList'
-import MarinaList from './MarinaList'
-import MaintainersList from './MaintainersList'
+import Header from './Header'
+
+import { Experiences }  from './components'
 
 class DashBoard extends React.Component {
   state = {
@@ -14,7 +14,7 @@ class DashBoard extends React.Component {
   }
 
   componentDidMount() {
-    // fetch data of the user with ID 
+    // fetch data of the user with ID
   }
 
 handleLogout = () => {
@@ -29,41 +29,16 @@ handleSection = (e) => {
 }
 
   render () {
-    const { section } = this.state
-    const { role } = this.props
+    const { loading } = this.props.state
+    const { user } = this.props.state.user
+    
+    if(loading) {
+      return <div>loading</div>
+    }
     return (
-      <div>
-        <h1>BOATER</h1>
-        <h2>What do you want to do ?</h2>
-        <select onChange={this.handleSection} id='options'>
-          <option value=''>what do you need?</option>
-          <option value="agency">I need an agency</option>
-          <option value="marinas">I want to find a marina</option>
-          <option value="maintainers">I need maintenance</option>
-          <option value="crew">I want to find a crew member</option>
-        </select>
-        <br />
-        {section === 'agency' &&
-          <AgencyList />
-        }
-
-        {section === 'marinas' &&
-          <MarinaList />
-        }
-
-        {section === 'maintainers' &&
-          <MaintainersList />
-        }
-
-        {section === 'crew' &&
-          <h3>Crew section is under construction</h3>
-        }
-
-
-        <Link to='/'>
-          <button onClick={this.handleLogout}>logout</button>
-        </Link>
-        {role === 'admin' && <div>here is the admin panel</div>}
+      <div className='page-wrapper'>
+        <Header />
+        <Experiences />
       </div>
     )
   }
@@ -72,7 +47,7 @@ handleSection = (e) => {
 
 const mapStateToProps = state => {
   console.log('app state', state.user)
-  return { state: state.user, role: state.user.role }
+  return { state: state.user }
 }
 
 const mapDispatchToProps = dispatch => {

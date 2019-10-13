@@ -6,10 +6,13 @@ import NotUser from './NotUser'
 import User from './User'
 import AdminPanel from './AdminPanel'
 
+import { Loader } from '../components'
+
 const Navigator = (props) => {
   const { user } = props
-  console.log('userrole auth',user)
-  if(user.role === 'admin'){
+  const { loading } = props.user
+
+  if(user.role === 'admin') {
     return <AdminPanel />
   }
   if(user.isAuth) {

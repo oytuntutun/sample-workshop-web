@@ -16,10 +16,9 @@ const { admin } = this.props
     return (
       <main>
         <Switch>
-          <Route path="/dashboard" component={DashBoard} admin={admin} />
+          <Route path="/dashboard" component={DashBoard} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/' component={Login} />
-          <Route exact path='/dasboard/:userId' component={Login} />
         </Switch>
       </main>
     )

@@ -15,10 +15,18 @@ const user = (state = {}, action) => {
         loginAttempt: false
       }
 
+    case 'START_REQUEST':
+      return {
+        ...state,
+        user: {...action.payload.payload, ...state},
+        loading: false,
+
+      }
+
     case 'LOGIN_SUCCESSFUL':
       return {
         ...state,
-        user: action.payload,
+        user: action.payload.user,
         loading: false,
         isAuth: true,
         role: action.payload.role

@@ -5,7 +5,6 @@ import { addMarina, getMarinas, deleteMarina } from '../../store/actions/marinas
 import Marina from './Marina'
 
 import '../../styles/adminpage.css'
-import { Button, Container, Input } from '../../components'
 
 class Marinas extends React.Component {
   state = {
@@ -69,30 +68,30 @@ class Marinas extends React.Component {
     return (
       <div>
         <h1>Marinas</h1>
-        <Container>
+        <div>
           <h2>Add new marina</h2>
-          <Button onClick={()=> this.setState({adding: !adding})}>
+          <button onClick={()=> this.setState({adding: !adding})}>
             {adding ? 'close panel' : 'add new'}
-          </Button>
-        </Container>
+          </button>
+        </div>
         {adding &&
           <div className='marina-admin-form'>
             <h4>Marina Name:</h4>
-            <Input onChange={(e)=> this.setState({ marinaName: e.target.value })} placeholder='name' />
+            <input onChange={(e)=> this.setState({ marinaName: e.target.value })} placeholder='name' />
             <h4>Marina Phone:</h4>
-            <Input onChange={(e)=> this.setState({ marinaPhone: e.target.value })} placeholder='phone' />
+            <input onChange={(e)=> this.setState({ marinaPhone: e.target.value })} placeholder='phone' />
             <h4>marina Coordinates:</h4>
-            <Input onChange={(e)=> this.setState({ marinaCoords: e.target.value })} placeholder='coords' />
+            <input onChange={(e)=> this.setState({ marinaCoords: e.target.value })} placeholder='coords' />
             <h4>Marina VHF</h4>
-            <Input onChange={(e)=> this.setState({ marinaVHF: e.target.value })} placeholder='channel' />
+            <input onChange={(e)=> this.setState({ marinaVHF: e.target.value })} placeholder='channel' />
             <h4>Marina Location</h4>
-            <Input onChange={(e)=> this.setState({ marinaLocation: e.target.value })} placeholder='location' />
+            <input onChange={(e)=> this.setState({ marinaLocation: e.target.value })} placeholder='location' />
             <h4>Subscription</h4>
               <div className='marina-admin-form-buttons'>
-                <Button onClick={() => this.setState({ marinaSubscription: true})}>subscribe marina</Button>
-                <Button onClick={() => this.setState({ marinaSubscription: false})}>remove marina subscription</Button>
+                <button onClick={() => this.setState({ marinaSubscription: true})}>subscribe marina</button>
+                <button onClick={() => this.setState({ marinaSubscription: false})}>remove marina subscription</button>
               </div>
-            <Button onClick={()=>this.addMarina({name: marinaName, token})}>addMarina</Button>
+            <button onClick={()=>this.addMarina({name: marinaName, token})}>addMarina</button>
           </div>
         }
         <br />
@@ -106,7 +105,7 @@ class Marinas extends React.Component {
           )
           })}
         </div>
-        <Button onClick={()=>this.getMarinas()}>getMarinas</Button>
+        <button onClick={()=>this.getMarinas()}>getMarinas</button>
       </div>
     )
   }
