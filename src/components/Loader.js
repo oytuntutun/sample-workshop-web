@@ -5,10 +5,10 @@ import '../styles/loader.css'
 class Loader extends React.Component {
   render () {
     return(
-      <div class="load-3">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+      <div className="load-3">
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
       </div>
     )
   }

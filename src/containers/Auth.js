@@ -19,9 +19,11 @@ const Navigator = (props) => {
   if(user.role === 'admin') {
     return <AdminPanel />
   }
+
   if(user.isAuth) {
     return <User />
   }
+
   return <NotUser />
 }
 

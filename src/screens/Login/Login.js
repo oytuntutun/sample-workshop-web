@@ -83,7 +83,10 @@ class Login extends React.Component {
             >
               Register
             </button>
-            <Link to='/dashboard' onClick={()=>this.props.login({email, password})}>
+            <Link
+              to='/dashboard'
+              onClick={()=>this.props.login({email, password})}
+            >
               Login
             </Link>
           </div>

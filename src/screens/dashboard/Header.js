@@ -3,6 +3,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { logout } from '../../store/actions/user/user'
 
+import MaterialIcon from 'material-icons-react'
+
 import { BasicInfo } from './components'
 
 import '../../styles/header.css'
@@ -18,25 +20,37 @@ handleLogout = () => {
   logout()
 }
 
+
+handleEdit = () => {
+  const { editing } = this.state
+  this.setState({ editing: !editing })
+}
+
   render () {
     const { editing } = this.state
     const { user } = this.props.state
-    console.log('jheadear',this.props.state)
+    console.log('jheadear', this.props.state)
     return (
       <div>
         <div className='header-wrapper'>
-          <div>profile photo</div>
+          <MaterialIcon icon='person' size={90} id='menu-icon' />
           <div>
-            <span>welcome {user.name ? user.name : 'onboard!'}</span>
+            <h2>Welcome, {user.name ? user.name : 'onboard!'} {user.surname ? user.surname : ''}</h2>
+            <h4> {user.title ? user.title : ''} at {user.company ? user.company : 'no company'}</h4>
           </div>
-          <div>
-            <button onClick={() => this.setState({editing: !editing})}>
+          <div className='button-container'>
+            <button onClick={this.handleEdit}>
               {editing ? 'cancel' : 'edit'}
             </button>
+
+            <button onClick={this.props.logout}>
+              logout
+            </button>
+
           </div>
         </div>
         {editing &&
-          <BasicInfo />
+          <BasicInfo handleEdit={this.handleEdit} />
         }
       </div>
     )

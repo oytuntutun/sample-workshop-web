@@ -5,7 +5,22 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 15px 30px
+  padding: 15px 30px;
+  border-bottom: rgb(181, 173, 172) 3px solid;
+}
+
+.header-wrapper h2 {
+  font-weight: 300
+}
+
+.header-wrapper h4 {
+  font-weight: 300
+}
+
+.header-wrapper i {
+  background-color: #dedede;
+  border-radius: 50%;
+  padding: 10px
 }
 
 .basic-info-container {
@@ -13,26 +28,20 @@
   flex-direction: column;
   width: 50%;
   margin: auto;
-  min-width: 320px
+  min-width: 320px;
+  max-width: 400px
 }
 
 .basic-info-sections {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%
 }
 
-.basic-info-sections button {
-  margin-top: 10px;
-  background-color: rgb(91, 125, 249);
-  border-radius: 20px;
-  font-size: 16px;
-  padding: 10px 20px;
-  color: #ffffff;
-  width: 20%;
-  min-width: 120px;
-  transition: all 0.5s;
-  cursor: pointer;
+.button-container {
+  display: flex;
+  flex-direction: column
 }
 
 .basic-info-sections input {
@@ -46,6 +55,10 @@
   color: rgb(76, 78, 77)
 }
 
+.buttons {
+  justify-content: center;
+}
+
 .basic-info-sections span {
   margin: 10px;
   padding: 5px;
@@ -54,5 +67,25 @@
   border-color: white;
   font-size: 16px;
   font-weight: 400;
+  color: rgb(76, 78, 77)
+}
+
+
+.error-message {
+  margin: 10px;
+  padding: 5px;
+  color: red;
+  font-size: 16px;
+  font-weight: 100;
+}
+
+
+.basic-info-container h3 {
+  margin: 10px;
+  padding: 5px;
+  outline: none;
+  border-radius: 10px;
+  border-color: white;
+  font-weight: 500;
   color: rgb(76, 78, 77)
 }

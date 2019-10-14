@@ -4,7 +4,11 @@ import { saveInformation } from '../../../store/actions/user/user'
 
 class BasicInfo extends React.Component {
   state = {
-    name: ''
+    name: '',
+    title: '',
+    company: '',
+    surname: '',
+    notValid: false
   }
 
   handleChange = (e) => {
@@ -12,21 +16,51 @@ class BasicInfo extends React.Component {
   }
 
   saveInformation = () => {
-    const { name } = this.state
-    this.props.saveInformation({name})
+    const { name, title, company, surname, notValid } = this.state
+    const { handleEdit } = this.props
+    if(name.length > 3 && title.length > 3 && company.length > 3 && surname.length > 3) {
+      console.log('working')
+    this.props.saveInformation({name, title, company, surname})
+    handleEdit()
+  } else
+  console.log('else working')
+    this.setState({notValid: !notValid})
+
   }
 
   render () {
-    console.log('dsaldkjhask',this.props)
+    const { notValid } = this.state
+    const { handleEdit } = this.props
+
     return (
       <div className='basic-info-container'>
+        <h3>Fill in your basic information:</h3>
         <div className='basic-info-sections'>
           <span>what is your name?</span>
           <input id='name' placeholder='enter your name' onChange={this.handleChange} />
         </div>
         <div className='basic-info-sections'>
+          <span>what is your surname?</span>
+          <input id='surname' placeholder='enter your surname' onChange={this.handleChange} />
+        </div>
+        <div className='basic-info-sections'>
+          <span>Job Title?</span>
+          <input id='title' placeholder='enter your title' onChange={this.handleChange} />
+        </div>
+        <div className='basic-info-sections'>
+          <span>Company?</span>
+          <input id='company' placeholder='enter your company name' onChange={this.handleChange} />
+        </div>
+        <div className='basic-info-sections'>
+          <input required type="file" name="fileToUpload" multiple data-preview-to="#preview" />
+          <div id='preview'></div>
+        </div>
+        {notValid &&
+          <span className='error-message'>please enter valid data</span>
+        }
+        <div className='basic-info-sections buttons'>
           <button onClick={this.saveInformation}>save</button>
-          <button>cancel</button>
+          <button onClick={handleEdit}>cancel</button>
         </div>
       </div>
     )

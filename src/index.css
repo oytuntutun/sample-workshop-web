@@ -12,12 +12,13 @@ code {
     monospace
 }
 
-h2 {
-  margin: 0
-}
-
-h1 {
-  margin: 0
+1, h2, h3, h4, h5 {
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    line-height: 1.28571429em;
+    margin: calc(2rem - .14285714em) 0 1rem;
+    font-weight: 700;
+    padding: 0;
+    margin: 0
 }
 
 Button {
@@ -26,4 +27,21 @@ Button {
 
 p {
   margin: 3px
+}
+
+button {
+  margin-top: 10px;
+  background-color: rgb(91, 125, 249);
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 10px 20px;
+  color: #ffffff;
+  width: 20%;
+  min-width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: rgb(51, 93, 218)
 }
