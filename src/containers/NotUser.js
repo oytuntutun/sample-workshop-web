@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
 
 import { Login } from '../screens'
-import { Register } from '../screens'
-
 
 // import Intro from 'screens/DashBoardPages/Intro'
 

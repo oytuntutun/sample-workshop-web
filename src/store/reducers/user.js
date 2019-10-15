@@ -24,7 +24,7 @@ const user = (state = {}, action) => {
     case 'START_REQUEST':
       return {
         ...state,
-        ...action.payload.payload ,
+        ...action.payload ,
         loading: false,
       }
 

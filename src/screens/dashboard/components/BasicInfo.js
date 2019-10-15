@@ -72,7 +72,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     saveInformation: payload => {
-      dispatch(saveInformation({payload}))
+      dispatch(saveInformation(payload))
     }
   }
 }
