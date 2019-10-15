@@ -49,11 +49,12 @@ class Login extends React.Component {
 
   render() {
     const { email, password, disabled } = this.state
-    const { newUser } = this.props
-    console.log(this.state)
+    const { error } = this.props
+
     if(this.props.loading) {
       return <div>loading</div>
     }
+
     return (
       <div className='page-container'>
         <div className='login-container'>
@@ -73,7 +74,7 @@ class Login extends React.Component {
             // type='password'
             onChange={this.handleInput}
           />
-        {newUser && <h3>did you mean to register?</h3> }
+        {error && <h3>did you mean to register?</h3> }
 
           <div className='button-container'>
             <button
@@ -83,12 +84,11 @@ class Login extends React.Component {
             >
               Register
             </button>
-            <Link
-              to='/dashboard'
+            <button
               onClick={()=>this.props.login({email, password})}
             >
               Login
-            </Link>
+            </button>
           </div>
         </div>
         <div className='information-area'>
@@ -101,8 +101,7 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('my login state ',state)
-  return { state: state }
+  return { error: state.user.error }
 }
 
 const mapDispatchToProps = dispatch => {

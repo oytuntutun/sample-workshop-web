@@ -12,6 +12,7 @@ class MainNavigation extends Component {
   }
 
   render() {
+    console.log('user')
     // if server has admin role enable to enable
     // admin dashboard pass admin={admin} to dashboard
     // const { admin } = this.props
@@ -19,9 +20,7 @@ class MainNavigation extends Component {
     return (
       <main>
         <Switch>
-          <Route path="/dashboard" component={DashBoard} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/' component={Login} />
+          <Route path="/" component={DashBoard} />
         </Switch>
       </main>
     )
@@ -29,7 +28,11 @@ class MainNavigation extends Component {
 }
 
 const mapStateToProps = state => {
-  return {state: state.user, role: state.role ? state.role : 'user'}
+  return {
+    user: state.user,
+    role: state.role ? state.role : 'user',
+    loginAttempt: state.loginAttempt
+  }
 }
 
 const mapDispatchToProps = dispatch => {

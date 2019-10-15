@@ -11,7 +11,7 @@ class BasicInfo extends React.Component {
     notValid: false
   }
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({[e.target.id]: e.target.value})
   }
 
@@ -19,11 +19,9 @@ class BasicInfo extends React.Component {
     const { name, title, company, surname, notValid } = this.state
     const { handleEdit } = this.props
     if(name.length > 3 && title.length > 3 && company.length > 3 && surname.length > 3) {
-      console.log('working')
     this.props.saveInformation({name, title, company, surname})
     handleEdit()
-  } else
-  console.log('else working')
+  }
     this.setState({notValid: !notValid})
 
   }

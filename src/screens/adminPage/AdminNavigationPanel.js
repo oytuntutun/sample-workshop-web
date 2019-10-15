@@ -31,7 +31,6 @@ class AdminNavigationPanel extends React.Component {
 
 
 const mapStateToProps = state => {
-  console.log('app state', state.user)
   return { state: state.user, role: state.user.role }
 }
 

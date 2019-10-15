@@ -35,6 +35,19 @@ export const saveInformation = payload => {
   }
 }
 
+export const addExperience = payload => {
+  console.log('working')
+  return async dispatch => {
+    const res = await Api.post('/users/addExperience', payload)
+    if(!res) return console.log('no res found')
+    console.log(res)
+    dispatch({
+      type: 'ADD_EXPERIENCE',
+      payload
+    })
+  }
+};
+
 export const setInitial = () => {
   return {
     type: 'SET_INITIAL'
@@ -62,6 +75,21 @@ export const loginFailed = payload => {
     payload
   }
 }
+
+export const editExperience = payload => {
+  return {
+    type: 'EDIT_EXPERIENCE',
+    payload
+  };
+};
+
+export const deleteExperience = payload => {
+  return {
+    type: 'DELETE_EXPERIENCE',
+    payload
+  };
+};
+
 
 export const logout = () => {
   return {

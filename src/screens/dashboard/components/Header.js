@@ -1,13 +1,13 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { logout } from '../../store/actions/user/user'
+import { logout } from '../../../store/actions/user/user'
 
 import MaterialIcon from 'material-icons-react'
 
-import { BasicInfo } from './components'
+import { BasicInfo } from '../components'
 
-import '../../styles/header.css'
+import '../../../styles/header.css'
 
 class Header extends React.Component {
   state = {
@@ -28,8 +28,8 @@ handleEdit = () => {
 
   render () {
     const { editing } = this.state
-    const { user } = this.props.state
-    console.log('jheadear', this.props.state)
+    const { user } = this.props
+
     return (
       <div>
         <div className='header-wrapper'>
@@ -59,7 +59,7 @@ handleEdit = () => {
 
 
 const mapStateToProps = state => {
-  return { state: state.user }
+  return { user: state.user }
 }
 
 const mapDispatchToProps = dispatch => {

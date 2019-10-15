@@ -1,0 +1,29 @@
+.add-area {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.18);
+  margin: auto;
+}
+
+.experience-wrapper {
+  padding: 30px 30px
+}
+
+.experience-wrapper span {
+  margin-left: 10px;
+  font-size: 23px
+}
+
+.content-wrapper {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  align-items: center;
+}
+
+.button-wrapper{
+  display: flex;
+}

@@ -28,7 +28,6 @@ const Navigator = (props) => {
 }
 
 const mapStateToProps = state => {
-  console.log('appstate', state)
   return {
     user: state.user,
   }

@@ -1,16 +1,22 @@
 const user = (state = {}, action) => {
   switch (action.type) {
     case 'SET_INITIAL':
-      return { loading: false, isAuth: false }
+      return {
+        ...state,
+        loading: false,
+        isAuth: false,
+        experiences: []
+       }
 
 
     case 'LOGIN_STARTED':
-      return { loading: true, user: null, isAuth: false }
+      return { loading: true, isAuth: false }
 
     case 'LOGIN_FAILED':
       return {
-        loading: false,
+        ...state,
         error: action.payload,
+        loading: false,
         isAuth: false,
         loginAttempt: false
       }
@@ -18,14 +24,21 @@ const user = (state = {}, action) => {
     case 'START_REQUEST':
       return {
         ...state,
-        user: {...state.user, ...action.payload.payload},
+        ...action.payload.payload ,
         loading: false,
       }
+
+    case 'ADD_EXPERIENCE':
+    console.log(state)
+      return {
+        ...state,
+        experiences: [action.payload, ...state.experience]
+      };
 
     case 'LOGIN_SUCCESSFUL':
       return {
         ...state,
-        user: action.payload.user,
+        ...action.payload.user,
         loading: false,
         isAuth: true,
         role: action.payload.role

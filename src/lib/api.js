@@ -36,7 +36,7 @@ const Api = {
       return req.data
     } catch (e) {
       store.dispatch({
-        type: 'DELETE_MARINA',
+        type: 'HANDLE_RES',
         payload: { err: e && e.response ? e.response.data : 'Something went wrong!' }
       })
     }
@@ -62,7 +62,7 @@ const Api = {
       return req.data
     } catch (e) {
       store.dispatch({
-        type: 'DELETE_MARINA',
+        type: 'HANDLE_RES',
         payload: { err: e && e.response ? e.response.data : 'Something went wrong!' }
       })
     }

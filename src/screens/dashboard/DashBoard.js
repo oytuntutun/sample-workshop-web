@@ -3,9 +3,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { logout } from '../../store/actions/user/user'
 
-import Header from './Header'
-
+import { Header } from './components'
 import { Experiences }  from './components'
+
+import '../../styles/dashboard.css'
 
 class DashBoard extends React.Component {
   state = {
@@ -33,10 +34,13 @@ handleSection = (e) => {
     if(loading) {
       return <div>loading</div>
     }
+
     return (
       <div className='page-wrapper'>
         <Header />
-        <Experiences />
+        <div className='content-area'>
+          <Experiences />
+        </div>
       </div>
     )
   }

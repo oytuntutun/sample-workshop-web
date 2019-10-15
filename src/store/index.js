@@ -19,8 +19,7 @@ const rootPersistConfig = {
 }
 
 const rootReducer = combineReducers({
-  user,
-  marina
+  user
 })
 
 const pReducer = persistReducer(rootPersistConfig, rootReducer)

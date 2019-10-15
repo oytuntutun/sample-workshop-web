@@ -9,12 +9,10 @@ import { Register } from '../screens'
 // import Intro from 'screens/DashBoardPages/Intro'
 
 const NotUser = ({ user }) => {
-  console.log('not user', user)
+  console.log('not user')
   return (
     <Switch>
-      <Route path="/dashboard" component={Register} />
-      <Route exact path='/login' component={Login} />
-      <Route exact path='/' component={Login} />
+      <Route path='/' component={Login} />
     </Switch>
   )
 }
