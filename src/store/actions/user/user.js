@@ -12,7 +12,6 @@ export const login = payload => {
         console.log('serverData', res.data)
         dispatch(loginSuccessful(res.data)) // res.data is user data
 
-
         // set JWT to device storage
         localStorage.setItem('token', res.data.token)
       })

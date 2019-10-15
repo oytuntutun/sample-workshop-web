@@ -5,9 +5,6 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 import {
   AdminPage,
   AdminNavigationPanel,
-  Marinas,
-  Agencies,
-  Maintainers
 } from '../screens'
 
 
@@ -21,9 +18,6 @@ class AdminPanel extends Component {
       <main className='admin-container'>
         <AdminNavigationPanel />
         <Switch>
-          <Route path="/admin/marinas" component={Marinas} />
-          <Route path="/admin/agencies" component={Agencies} />
-          <Route path="/admin/maintainers" component={Maintainers} />
           <Route path="/DashBoard" component={AdminPage} />
           <Route path="/" component={AdminPage} />
         </Switch>

@@ -15,11 +15,7 @@ class AdminNavigationPanel extends React.Component {
     return (
       <nav className='admin-navigation-container'>
         <div className='admin-navigation'>
-          <Link to='/'>homepage</Link>
-          <Link to='/admin/marinas'>Marinas</Link>
-          <Link to='/admin/agencies'>Agencies</Link>
-          <Link to='/admin/maintainers'>Maintainers</Link>
-          <Link to='/admin/marinas'>Crew</Link>
+          <Link to='/'>admin panel</Link>
           <Link to='/'>
             <button onClick={this.handleLogout}>logout</button>
           </Link>

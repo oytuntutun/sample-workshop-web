@@ -8,8 +8,7 @@ import hardSet from 'redux-persist/lib/stateReconciler/hardSet'
 import storage from 'redux-persist/lib/storage'
 
 // import reducers
-import user from './reducers/login'
-import marina from './reducers/marina'
+import user from './reducers/user'
 
 const rootPersistConfig = {
   key: 'root',
