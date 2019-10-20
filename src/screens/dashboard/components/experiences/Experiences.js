@@ -4,7 +4,7 @@ import Experience from './Experience';
 import AddExperience from './AddExperience';
 import './experience.css';
 
-const Experiences = ({ experiences }) => {
+const Experiences = ({ experience }) => {
   return (
     <div className="">
       <div className="section-informer">
@@ -12,9 +12,9 @@ const Experiences = ({ experiences }) => {
       </div>
 
       <AddExperience />
-      {(experiences &&
-        experiences.length &&
-        experiences.map((experience, index) => (
+      {(experience &&
+        experience.length &&
+        experience.map((experience, index) => (
           <Experience key={index} experience={experience} />
         ))) || <noscript />}
     </div>
@@ -23,7 +23,7 @@ const Experiences = ({ experiences }) => {
 
 const mapStateToProps = state => {
   console.log('zp state',state)
-  return { experiences: state.user.experiences };
+  return { experience: state.user.experience };
 };
 
 const mapDispatchToProps = dispatch => {

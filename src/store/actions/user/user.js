@@ -9,7 +9,6 @@ export const login = payload => {
     axios
       .post('http://localhost:4000/users/login', payload) // payload contains email and password
       .then(res => {
-        console.log('serverData', res.data)
         dispatch(loginSuccessful(res.data)) // res.data is user data
 
         // set JWT to device storage
@@ -35,17 +34,32 @@ export const saveInformation = payload => {
 }
 
 export const addExperience = payload => {
-  console.log('working')
+  console.log('add XP reducer',payload)
   return async dispatch => {
     const res = await Api.post('/users/addExperience', payload)
-    if(!res) return console.log('no res found')
-    console.log(res)
+    console.log('res user', res.user.experience._id)
+    if(!res) return
+
     dispatch({
       type: 'ADD_EXPERIENCE',
       payload
     })
   }
 };
+
+export const deleteExperience = payload => {
+  return async dispatch => {
+    const res = await Api.delete('/users/deleteExperience',  {id: payload})
+    console.log('delete exp', res)
+    if (!res) return
+
+    dispatch({
+      type: 'DELETE_EXPERIENCE',
+      payload
+    })
+  }
+}
+
 
 export const setInitial = () => {
   return {
@@ -60,8 +74,6 @@ export const loginStarted = () => {
 }
 
 export const loginSuccessful = payload => {
-  // localStorage.setItem('token', payload.token)
-  console.log('payload',payload)
   return {
     type: 'LOGIN_SUCCESSFUL',
     payload
@@ -81,14 +93,6 @@ export const editExperience = payload => {
     payload
   };
 };
-
-export const deleteExperience = payload => {
-  return {
-    type: 'DELETE_EXPERIENCE',
-    payload
-  };
-};
-
 
 export const logout = () => {
   return {

@@ -27,3 +27,39 @@
 .button-wrapper{
   display: flex;
 }
+
+.radio-group {
+  justify-content: flex-start !important;
+}
+
+#currentlyWorking {
+margin-left: 15px
+}
+
+#stillWorking {
+  padding: 0
+}
+
+
+.experience-container {
+  background-color: lightgray;
+  margin: 0 15px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px
+}
+
+.experience-header {
+  margin: 15px;
+  display: flex;
+}
+
+.experience-header i {
+  margin-left: 5px;
+  cursor: pointer
+}
+
+.experience-content {
+  background-color: white;
+  margin: 0 15px 15px
+}

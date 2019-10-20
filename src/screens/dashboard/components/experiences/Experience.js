@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { deleteExperience } from '../../../../store/actions/user/user';
 import EditExperience from './EditExperience';
+import MaterialIcon from 'material-icons-react'
 
 class Experience extends Component {
   state = {
@@ -10,24 +11,34 @@ class Experience extends Component {
 
   handleEdit = () => {
     const { editing } = this.state;
-    this.setState({ editing: !editing });
+    this.setState({ editing: !editing })
   };
 
-  handleDelete = id => {
-    if (id) {
-      this.props.deleteExperience({ id });
-    }
+  handleDelete = () => {
+    const { deleteExperience } = this.props
+      deleteExperience(this.props.experience._id )
   };
 
   render() {
     const { editing } = this.state;
-    const { experience } = this.props;
+    const { experience, deleteExperience } = this.props;
+    const { currentlyWorking, endedAt } = experience
+    console.log('experience', this.props)
     if (!editing) {
       return (
-        <div>
-          <p>{experience.company}</p>
-          <p>{experience.location}</p>
-          <p>{experience.title}</p>
+        <div className='experience-container'>
+          <div className='experience-header'>
+            <h4>{experience.company}</h4>
+            <MaterialIcon icon='edit' size={20} onClick={()=>this.setState({editing: !editing})} />
+            <MaterialIcon icon='delete' size={20} onClick={()=>this.handleDelete()} />
+          </div>
+
+          <div className='experience-content'>
+            <p>{experience.title}</p>
+            <p>{experience.location}</p>
+            <p>{experience.startedAt} - {currentlyWorking ? 'currentlyWorking' : endedAt}</p>
+          </div>
+
         </div>
       );
     }

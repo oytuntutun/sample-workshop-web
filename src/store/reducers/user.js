@@ -1,4 +1,4 @@
-const user = (state = {}, action) => {
+const user = (state = {experiences: []}, action) => {
   switch (action.type) {
     case 'SET_INITIAL':
       return {
@@ -29,11 +29,18 @@ const user = (state = {}, action) => {
       }
 
     case 'ADD_EXPERIENCE':
-    console.log(state)
       return {
         ...state,
-        experiences: [action.payload, ...state.experience]
+        experience: [action.payload, ...state.experience]
       };
+
+    case 'DELETE_EXPERIENCE':
+      return {
+        ...state,
+        experience: state.experience.filter(
+          experience => experience._id !== action.payload
+        )
+      }
 
     case 'LOGIN_SUCCESSFUL':
       return {

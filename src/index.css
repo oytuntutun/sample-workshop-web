@@ -25,10 +25,21 @@ h1, h2, h3, h4, h5 {
 input {
   margin-bottom: 10px;
   padding: 5px;
-  width: 20%;
   outline: none;
   border-radius: 10px;
   border-color: white;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(76, 78, 77)
+}
+
+textarea {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 195px;
+  border-radius: 10px;
+  border-color: gray;
+  outline: none;
   font-size: 16px;
   font-weight: 400;
   color: rgb(76, 78, 77)

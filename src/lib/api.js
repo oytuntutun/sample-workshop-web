@@ -58,7 +58,7 @@ const Api = {
     await setHeaders()
 
     try {
-      const req = await axios.delete(`${API_URL}${endpoint}`, params)
+      const req = await axios.delete(`${API_URL}${endpoint}`, {data: params})
       return req.data
     } catch (e) {
       store.dispatch({

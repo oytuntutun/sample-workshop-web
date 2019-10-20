@@ -11,8 +11,8 @@ class AddExperience extends Component {
     company: '',
     title: '',
     description: '',
-    startedAt: 2019,
-    endedAt: 2019,
+    startedAt: '2019',
+    endedAt: '2019',
     currentlyWorking: false,
     location: ''
   };
@@ -28,8 +28,24 @@ class AddExperience extends Component {
   }
 
   saveExperience = () => {
-    const {company, title} = this.state
-    this.props.addExperience({company, title})
+    const {
+      company,
+      title,
+      description,
+      startedAt,
+      endedAt,
+      currentlyWorking,
+      location
+    } = this.state
+    this.props.addExperience({
+      company,
+      title,
+      description,
+      startedAt,
+      endedAt,
+      currentlyWorking,
+      location
+    })
   }
 
   render() {
@@ -65,26 +81,37 @@ class AddExperience extends Component {
       <div className='basic-info-container'>
         <h3>Fill in your company information:</h3>
         <div className='basic-info-sections'>
-          <span>what is your name?</span>
-          <input id='company' placeholder='enter your name' onChange={this.handleChange} />
-        </div>
-        <div className='basic-info-sections'>
-          <span>what is your surname?</span>
-          <input id='title' placeholder='enter your surname' onChange={this.handleChange} />
+          <span>Company?</span>
+          <input id='company' placeholder='Company Name?' onChange={this.handleChange} />
         </div>
         <div className='basic-info-sections'>
           <span>Job Title?</span>
-          <input id='title' placeholder='enter your title' onChange={this.handleChange} />
+          <input id='title' placeholder='What was your title?' onChange={this.handleChange} />
         </div>
         <div className='basic-info-sections'>
-          <span>Company?</span>
-          <input id='company' placeholder='enter your company name' onChange={this.handleChange} />
+          <span>Location?</span>
+          <input id='location' placeholder='Where was it?' onChange={this.handleChange} />
         </div>
         <div className='basic-info-sections'>
-          <input required type="file" name="fileToUpload" multiple data-preview-to="#preview" />
-          <div id='preview'></div>
+          <span>Job Description?</span>
+          <textarea id='description' placeholder='What did you do?' onChange={this.handleChange} />
         </div>
-          <span className='error-message'>please enter valid data</span>
+        <div className='basic-info-sections'>
+          <span>Started At?</span>
+          <input id='startedAt' placeholder='When did you start?' onChange={this.handleChange} />
+        </div>
+        {!currentlyWorking &&
+          <div className='basic-info-sections'>
+            <span>Ended At?</span>
+            <input id='endedAt' placeholder='when did it end?' onChange={this.handleChange} />
+          </div>
+        }
+
+        <div className='basic-info-sections radio-group'>
+          <input type='checkbox' id='currentlyWorking' onChange={() => this.setState({ currentlyWorking: !currentlyWorking })} />
+          <span id='stillWorking'>I am Still Working Here</span>
+        </div>
+
         <div className='basic-info-sections buttons'>
           <button onClick={this.saveExperience}>save</button>
           <button onClick={this.handleAddExperience}>cancel</button>
