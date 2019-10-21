@@ -17,7 +17,6 @@ class Login extends React.Component {
     this.props.setInitial()
   }
 
-
   isValid = () => {
     const { email, password } = this.state
     if(email.length < 5 || password.length < 5) {

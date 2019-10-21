@@ -4,7 +4,8 @@ import { editExperience } from '../../../../store/actions/user/user';
 
 class EditExperience extends Component {
   state = {
-    ...this.props.experience
+    ...this.props.experience,
+    currentlyWorking: false
   };
 
   handleChange = e => {
@@ -18,9 +19,42 @@ class EditExperience extends Component {
   };
 
   render() {
-    const { company, title, description, location } = this.state;
+    console.log(this.state)
+    const { handleEdit } = this.props
+    const { currentlyWorking, company, title, description, location, startedAt, endedAt } = this.state;
     return (
-      <div>edit experience</div>
+      <div className='basic-info-container'>
+        <div className='basic-info-sections'>
+          <input id='company' value={company} placeholder='Company' onChange={this.handleChange} />
+        </div>
+        <div className='basic-info-sections'>
+          <input id='title' value={title} placeholder='What was your title?' onChange={this.handleChange} />
+        </div>
+        <div className='basic-info-sections'>
+          <input id='location' value={location} placeholder='Where was it?' onChange={this.handleChange} />
+        </div>
+        <div className='basic-info-sections'>
+          <textarea id='description' value={description} placeholder='What did you do?' onChange={this.handleChange} />
+        </div>
+        <div className='basic-info-sections'>
+          <input id='startedAt' value={startedAt} placeholder='When did you start?' onChange={this.handleChange} />
+        </div>
+        {!currentlyWorking &&
+          <div className='basic-info-sections'>
+            <input id='endedAt' value={endedAt} placeholder='when did it end?' onChange={this.handleChange} />
+          </div>
+        }
+
+        <div className='basic-info-sections radio-group'>
+          <input type='checkbox' id='currentlyWorking' onChange={() => this.setState({ currentlyWorking: !currentlyWorking })} />
+          <span id='stillWorking'>I am Still Working Here</span>
+        </div>
+
+        <div className='basic-info-sections buttons'>
+          <button onClick={this.handleSubmit}>save</button>
+          <button onClick={handleEdit}>cancel</button>
+        </div>
+      </div>
     );
   }
 }

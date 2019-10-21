@@ -23,7 +23,7 @@ class Experience extends Component {
     const { editing } = this.state;
     const { experience, deleteExperience } = this.props;
     const { currentlyWorking, endedAt } = experience
-    console.log('experience', this.props)
+
     if (!editing) {
       return (
         <div className='experience-container'>
@@ -36,7 +36,14 @@ class Experience extends Component {
           <div className='experience-content'>
             <p>{experience.title}</p>
             <p>{experience.location}</p>
-            <p>{experience.startedAt} - {currentlyWorking ? 'currentlyWorking' : endedAt}</p>
+            <p>
+              {experience.startedAt} -
+              {
+                currentlyWorking
+                ? ' currentlyWorking'
+                : endedAt
+              }
+            </p>
           </div>
 
         </div>

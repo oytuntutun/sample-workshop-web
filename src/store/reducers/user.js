@@ -42,6 +42,23 @@ const user = (state = {experiences: []}, action) => {
         )
       }
 
+    case 'EDIT_EXPERIENCE':
+      return {
+        ...state,
+        experience: state.experience.map(x => {
+          // check if its the experience we edited
+          if (x._id === action.payload._id) {
+            // edit the x with new values
+            return {
+              ...x, // spread the current experience values,
+              ...action.payload // spread the new values. the values will overwrite values of the already spread ...x
+            };
+          }
+          // it was not the experience we edited
+          return x; // return it as it is, without changing
+        })
+      }
+
     case 'LOGIN_SUCCESSFUL':
       return {
         ...state,

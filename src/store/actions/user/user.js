@@ -23,7 +23,7 @@ export const login = payload => {
 
 export const saveInformation = payload => {
   return async dispatch => {
-    const res = await Api.put('/data/add',  payload)
+    const res = await Api.put('/users/addBasicInfo',  payload)
     if (!res) return
 
     dispatch({
@@ -50,7 +50,6 @@ export const addExperience = payload => {
 export const deleteExperience = payload => {
   return async dispatch => {
     const res = await Api.delete('/users/deleteExperience',  {id: payload})
-    console.log('delete exp', res)
     if (!res) return
 
     dispatch({
@@ -60,6 +59,18 @@ export const deleteExperience = payload => {
   }
 }
 
+export const editExperience = payload => {
+  return async dispatch => {
+    const res = await Api.put('/users/editExperience',  payload)
+    console.log('delete exp', res)
+    if (!res) return
+
+    dispatch({
+      type: 'EDIT_EXPERIENCE',
+      payload
+    })
+  }
+}
 
 export const setInitial = () => {
   return {
@@ -86,13 +97,6 @@ export const loginFailed = payload => {
     payload
   }
 }
-
-export const editExperience = payload => {
-  return {
-    type: 'EDIT_EXPERIENCE',
-    payload
-  };
-};
 
 export const logout = () => {
   return {

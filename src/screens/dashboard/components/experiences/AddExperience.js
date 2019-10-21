@@ -12,7 +12,7 @@ class AddExperience extends Component {
     title: '',
     description: '',
     startedAt: '2019',
-    endedAt: '2019',
+    endedAt: '',
     currentlyWorking: false,
     location: ''
   };
@@ -46,10 +46,10 @@ class AddExperience extends Component {
       currentlyWorking,
       location
     })
+    this.handleAddExperience()
   }
 
   render() {
-    console.log(this.state)
     const {
       adding,
       description,
@@ -57,7 +57,8 @@ class AddExperience extends Component {
       endedAt,
       currentlyWorking,
       location
-    } = this.state;
+    } = this.state
+
     if (!adding) {
       return (
         <div className='experience-wrapper'>
