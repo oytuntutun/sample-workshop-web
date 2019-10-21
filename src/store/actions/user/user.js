@@ -37,7 +37,7 @@ export const addExperience = payload => {
   console.log('add XP reducer',payload)
   return async dispatch => {
     const res = await Api.post('/users/addExperience', payload)
-    console.log('res user', res.user.experience._id)
+    console.log('res',res.user)
     if(!res) return
 
     dispatch({

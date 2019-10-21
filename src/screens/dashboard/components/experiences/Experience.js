@@ -16,14 +16,14 @@ class Experience extends Component {
 
   handleDelete = () => {
     const { deleteExperience } = this.props
-      deleteExperience(this.props.experience._id )
+      deleteExperience(this.props.experience._id)
   };
 
   render() {
     const { editing } = this.state;
     const { experience, deleteExperience } = this.props;
     const { currentlyWorking, endedAt } = experience
-
+    console.log('experience',experience.title)
     if (!editing) {
       return (
         <div className='experience-container'>
@@ -57,10 +57,8 @@ class Experience extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    user: state.user
-  };
-};
+  return {}
+}
 
 const mapDispatchToProps = dispatch => {
   return {

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { addExperience } from '../../../../store/actions/user/user';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { addExperience } from '../../../../store/actions/user/user'
+import { connect } from 'react-redux'
 import MaterialIcon from 'material-icons-react'
 
 import '../../../../styles/experience.css'
@@ -15,7 +15,7 @@ class AddExperience extends Component {
     endedAt: '',
     currentlyWorking: false,
     location: ''
-  };
+  }
 
 
   handleAddExperience = () => {
@@ -24,7 +24,7 @@ class AddExperience extends Component {
   }
 
   handleChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
+    this.setState({ [e.target.id]: e.target.value })
   }
 
   saveExperience = () => {
@@ -62,6 +62,7 @@ class AddExperience extends Component {
     if (!adding) {
       return (
         <div className='experience-wrapper'>
+          <span id='background-label'>Background</span>
           <MaterialIcon icon='post_add' size={20} />
           <span>
             Experiences
@@ -75,7 +76,7 @@ class AddExperience extends Component {
           </div>
 
         </div>
-      );
+      )
     }
 
     return (
@@ -118,13 +119,13 @@ class AddExperience extends Component {
           <button onClick={this.handleAddExperience}>cancel</button>
         </div>
       </div>
-    );
+    )
   }
 }
 
 const mapStateToProps = state => {
   return {state: state.user}
-};
+}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -137,4 +138,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddExperience);
+)(AddExperience)
