@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { addExperience } from '../../../../store/actions/user/user'
 import { connect } from 'react-redux'
+import { addExperience } from '../../../../store/actions/user/user'
 import MaterialIcon from 'material-icons-react'
 
 import '../../../../styles/experience.css'
@@ -37,6 +37,7 @@ class AddExperience extends Component {
       currentlyWorking,
       location
     } = this.state
+
     this.props.addExperience({
       company,
       title,

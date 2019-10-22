@@ -1,21 +1,15 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { logout } from '../../store/actions/user/user'
+import { logout, removeError } from '../../store/actions/user/user'
 
 import { Header } from './components'
-import { Experiences }  from './components'
+import { Experiences, Educations }  from './components'
+import MaterialIcon from 'material-icons-react'
 
 import '../../styles/dashboard.css'
 
 class DashBoard extends React.Component {
-  state = {
-    section: ''
-  }
-
-  componentDidMount() {
-    // fetch data of the user with ID
-  }
 
 handleLogout = () => {
   const { logout } = this.props
@@ -23,9 +17,25 @@ handleLogout = () => {
   logout()
 }
 
-handleSection = (e) => {
-  const x = document.getElementById("options").value;
-  this.setState({ section :x })
+handleGlobalError = () => {
+  const { error } = this.props.state
+  const { removeError } = this.props
+
+  if(error) {
+    setTimeout(()=> {
+      removeError()
+    }, 8000)
+  }
+
+  return (
+    error &&
+      <div className='server-error-message' onClick={() => removeError()}>
+        <span>
+          sorry something went wrong 😞
+        </span>
+        <MaterialIcon icon='close' size={30} />
+      </div>
+  )
 }
 
   render () {
@@ -38,8 +48,10 @@ handleSection = (e) => {
     return (
       <div className='page-wrapper'>
         <Header />
+        {this.handleGlobalError()}
         <div className='content-area'>
           <Experiences />
+          <Educations />
         </div>
       </div>
     )
@@ -55,7 +67,11 @@ const mapDispatchToProps = dispatch => {
   return {
     logout: payload => {
       dispatch(logout())
+    },
+    removeError: () => {
+      dispatch(removeError())
     }
+
   }
 }
 

@@ -6,7 +6,20 @@ const user = (state = {experiences: []}, action) => {
         loading: false,
         isAuth: false,
         experiences: []
-       }
+      }
+
+    case 'HANDLE_RES':
+      return {
+        ...state,
+        error: true,
+        errorMessage: action.payload
+      }
+
+    case 'REMOVE_ERROR':
+      return {
+        ...state,
+        error: false,
+      }
 
 
     case 'LOGIN_STARTED':

@@ -8,10 +8,38 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace
+.server-error-message {
+  color: white;
+  display: flex;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: rgb(252, 111, 3);
+  position: absolute;
+  bottom: 30px;
+  animation-name: global-error;
+  animation-duration: 8s;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0.8
 }
+
+@keyframes global-error {
+  0% {
+    opacity: 0;
+    right: 300px
+  }
+
+  15% {
+    right: 30px;
+    opacity: 1
+  }
+
+  100% {
+    opacity: 0;
+    right: 30px;
+  }
+}
+
 
 h1, h2, h3, h4, h5 {
     font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;

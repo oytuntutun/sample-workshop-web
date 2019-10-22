@@ -37,7 +37,6 @@ export const addExperience = payload => {
   console.log('add XP reducer',payload)
   return async dispatch => {
     const res = await Api.post('/users/addExperience', payload)
-    console.log('res',res.user)
     if(!res) return
 
     dispatch({
@@ -45,7 +44,7 @@ export const addExperience = payload => {
       payload
     })
   }
-};
+}
 
 export const deleteExperience = payload => {
   return async dispatch => {
@@ -72,9 +71,27 @@ export const editExperience = payload => {
   }
 }
 
+export const addEducation = payload => {
+  return async dispatch => {
+    const res = await Api.post('/users/addEducation', payload)
+    if(!res) return
+
+    dispatch({
+      type: 'ADD_EDUCATION',
+      payload
+    })
+  }
+};
+
 export const setInitial = () => {
   return {
     type: 'SET_INITIAL'
+  }
+}
+
+export const removeError = () => {
+  return {
+    type: 'REMOVE_ERROR'
   }
 }
 

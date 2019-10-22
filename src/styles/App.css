@@ -3,5 +3,6 @@
   background-color: #dedede;
   margin: auto;
   box-shadow: 10px 10px 8px #888888;
-  padding: 30px 15px
+  padding: 30px 15px;
+  position: relative;
 }
