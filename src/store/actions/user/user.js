@@ -34,7 +34,6 @@ export const saveInformation = payload => {
 }
 
 export const addExperience = payload => {
-  console.log('add XP reducer',payload)
   return async dispatch => {
     const res = await Api.post('/users/addExperience', payload)
     if(!res) return
@@ -72,6 +71,7 @@ export const editExperience = payload => {
 }
 
 export const addEducation = payload => {
+  console.log(payload)
   return async dispatch => {
     const res = await Api.post('/users/addEducation', payload)
     if(!res) return

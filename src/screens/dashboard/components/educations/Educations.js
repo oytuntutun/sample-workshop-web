@@ -5,15 +5,15 @@ import Education from './Education'
 import AddEducation from './AddEducation'
 
 
-const Educations = ({ educations }) => {
+const Educations = ({ education }) => {
     return (
       <div>
 
         <AddEducation />
-        {(educations &&
-          educations.length &&
-          educations.map((experience, index) => (
-            <Education key={index} educations={educations} />
+        {(education &&
+          education.length &&
+          education.map((education, index) => (
+            <Education key={index} education={education} />
           ))) || <noscript />}
 
       </div>
@@ -21,7 +21,7 @@ const Educations = ({ educations }) => {
   }
 
   const mapStateToProps = state => {
-    return { educations: state.user.educations }
+    return { education: state.user.education }
   }
 
   const mapDispatchToProps = dispatch => {

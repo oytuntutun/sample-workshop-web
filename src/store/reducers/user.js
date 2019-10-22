@@ -1,11 +1,12 @@
-const user = (state = {experiences: []}, action) => {
+const user = (state = {experiences: [], education: [] }, action) => {
   switch (action.type) {
     case 'SET_INITIAL':
       return {
         ...state,
         loading: false,
         isAuth: false,
-        experiences: []
+        experiences: [],
+        education: []
       }
 
     case 'HANDLE_RES':
@@ -46,6 +47,13 @@ const user = (state = {experiences: []}, action) => {
         ...state,
         experience: [action.payload, ...state.experience]
       };
+
+    case 'ADD_EDUCATION':
+      return {
+        ...state,
+        education: [action.payload, ...state.education]
+      };
+
 
     case 'DELETE_EXPERIENCE':
       return {

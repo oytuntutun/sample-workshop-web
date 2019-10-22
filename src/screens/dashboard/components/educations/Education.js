@@ -11,23 +11,23 @@ class Education extends Component {
 
   render() {
     const { editing } = this.state
-    const { educations } = this.props
-    const { currentlyStudying, endedAt } = educations
+    const { education } = this.props
+    const { currentlyStudying, endedAt, school } = education
 
     if (!editing) {
       return (
         <div className='experience-container'>
           <div className='experience-header'>
-            <h4>{educations.company}</h4>
+            <h4>{education.school}</h4>
             <MaterialIcon icon='edit' size={20} onClick={()=>this.setState({editing: !editing})} />
             <MaterialIcon icon='delete' size={20} onClick={()=>this.handleDelete()} />
           </div>
 
           <div className='experience-content'>
-            <p>{educations.title}</p>
-            <p>{educations.location}</p>
+            <p>{education.title}</p>
+            <p>{education.location}</p>
             <p>
-              {educations.startedAt} -
+              {education.startedAt} -
               {
                 currentlyStudying
                 ? ' currentlyWorking'
@@ -41,7 +41,7 @@ class Education extends Component {
     }
 
     return (
-      <EditEducation handleEdit={this.handleEdit} educations={educations} />
+      <EditEducation handleEdit={this.handleEdit} education={education} />
     );
   }
 }
