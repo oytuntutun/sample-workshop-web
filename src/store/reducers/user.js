@@ -48,13 +48,6 @@ const user = (state = {experiences: [], education: [] }, action) => {
         experience: [action.payload, ...state.experience]
       };
 
-    case 'ADD_EDUCATION':
-      return {
-        ...state,
-        education: [action.payload, ...state.education]
-      };
-
-
     case 'DELETE_EXPERIENCE':
       return {
         ...state,
@@ -62,6 +55,7 @@ const user = (state = {experiences: [], education: [] }, action) => {
           experience => experience._id !== action.payload
         )
       }
+
 
     case 'EDIT_EXPERIENCE':
       return {
@@ -77,6 +71,34 @@ const user = (state = {experiences: [], education: [] }, action) => {
           }
           // it was not the experience we edited
           return x; // return it as it is, without changing
+        })
+      }
+
+    case 'ADD_EDUCATION':
+      return {
+        ...state,
+        education: [action.payload, ...state.education]
+      };
+
+    case 'DELETE_EDUCATION':
+      return {
+        ...state,
+        education: state.education.filter(
+          education => education._id !== action.payload
+        )
+      }
+
+    case 'EDIT_EDUCATION':
+      return {
+        ...state,
+        education: state.education.map(x => {
+          if (x._id === action.payload._id) {
+            return {
+              ...x,
+              ...action.payload
+            };
+          }
+          return x
         })
       }
 

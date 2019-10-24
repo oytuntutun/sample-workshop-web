@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route, Switch, withRouter } from 'react-router-dom'
 
-import { Login } from '../screens'
 import { DashBoard } from '../screens'
 
 

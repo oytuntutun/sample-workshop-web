@@ -50,13 +50,7 @@ class AddEducation extends React.Component {
   render () {
     const {
       adding,
-      school,
-      degree,
-      division,
-      startedAt,
-      endedAt,
-      currentlyStudying,
-      location
+      currentlyStudying
     } = this.state
 
     if (!adding) {

@@ -19,9 +19,9 @@ class EditExperience extends Component {
   };
 
   render() {
-    console.log(this.state)
     const { handleEdit } = this.props
     const { currentlyWorking, company, title, description, location, startedAt, endedAt } = this.state;
+    
     return (
       <div className='basic-info-container'>
         <div className='basic-info-sections'>

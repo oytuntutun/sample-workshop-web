@@ -36,11 +36,12 @@ export const saveInformation = payload => {
 export const addExperience = payload => {
   return async dispatch => {
     const res = await Api.post('/users/addExperience', payload)
+    console.log('res',res)
     if(!res) return
-
+    console.log('res id',res.experience._id)
     dispatch({
       type: 'ADD_EXPERIENCE',
-      payload
+      payload: res.experience
     })
   }
 }
@@ -48,6 +49,7 @@ export const addExperience = payload => {
 export const deleteExperience = payload => {
   return async dispatch => {
     const res = await Api.delete('/users/deleteExperience',  {id: payload})
+    console.log('server res',res)
     if (!res) return
 
     dispatch({
@@ -60,7 +62,6 @@ export const deleteExperience = payload => {
 export const editExperience = payload => {
   return async dispatch => {
     const res = await Api.put('/users/editExperience',  payload)
-    console.log('delete exp', res)
     if (!res) return
 
     dispatch({
@@ -71,7 +72,6 @@ export const editExperience = payload => {
 }
 
 export const addEducation = payload => {
-  console.log(payload)
   return async dispatch => {
     const res = await Api.post('/users/addEducation', payload)
     if(!res) return
@@ -81,7 +81,32 @@ export const addEducation = payload => {
       payload
     })
   }
-};
+}
+
+export const deleteEducation = payload => {
+  return async dispatch => {
+    const res = await Api.delete('/users/deleteEducation',  {id: payload})
+    if (!res) return
+
+    dispatch({
+      type: 'DELETE_EDUCATION',
+      payload
+    })
+  }
+}
+
+export const editEducation = payload => {
+  return async dispatch => {
+    const res = await Api.put('/users/editEducation',  payload)
+    if (!res) return
+
+    dispatch({
+      type: 'EDIT_EDUCATION',
+      payload
+    })
+  }
+}
+
 
 export const setInitial = () => {
   return {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { editExperience } from '../../../../store/actions/user/user';
+import { editEducation } from '../../../../store/actions/user/user';
 
 class EditEducation extends Component {
   state = {
-    ...this.props.experience,
-    currentlyWorking: false
+    ...this.props.education,
+    currentlyStudying: false
   };
 
   handleChange = e => {
@@ -13,19 +13,20 @@ class EditEducation extends Component {
   };
 
   handleSubmit = e => {
-    const { editExperience, handleEdit } = this.props;
-    editExperience(this.state);
+    const { editEducation, handleEdit } = this.props;
+    editEducation(this.state);
     handleEdit();
   };
 
   render() {
     console.log(this.state)
     const { handleEdit } = this.props
-    const { currentlyWorking, company, title, description, location, startedAt, endedAt } = this.state;
+    const { currentlyWorking, school, title, description, location, startedAt, endedAt } = this.state;
+
     return (
       <div className='basic-info-container'>
         <div className='basic-info-sections'>
-          <input id='company' value={company} placeholder='Company' onChange={this.handleChange} />
+          <input id='school' value={school} placeholder='School' onChange={this.handleChange} />
         </div>
         <div className='basic-info-sections'>
           <input id='title' value={title} placeholder='What was your title?' onChange={this.handleChange} />
@@ -65,8 +66,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    editExperience: payload => {
-      dispatch(editExperience(payload));
+    editEducation: payload => {
+      dispatch(editEducation(payload));
     }
   };
 };

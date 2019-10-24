@@ -51,14 +51,7 @@ class AddExperience extends Component {
   }
 
   render() {
-    const {
-      adding,
-      description,
-      startedAt,
-      endedAt,
-      currentlyWorking,
-      location
-    } = this.state
+    const { adding, currentlyWorking } = this.state
 
     if (!adding) {
       return (

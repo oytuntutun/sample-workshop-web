@@ -31,7 +31,7 @@ handleGlobalError = () => {
     error &&
       <div className='server-error-message' onClick={() => removeError()}>
         <span>
-          sorry something went wrong 😞
+          sorry something went wrong <span role='img' aria-label='sad'>😞</span>
         </span>
         <MaterialIcon icon='close' size={30} />
       </div>

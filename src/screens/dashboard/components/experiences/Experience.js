@@ -21,9 +21,9 @@ class Experience extends Component {
 
   render() {
     const { editing } = this.state;
-    const { experience, deleteExperience } = this.props;
+    const { experience } = this.props;
     const { currentlyWorking, endedAt } = experience
-    console.log('experience',experience.title)
+
     if (!editing) {
       return (
         <div className='experience-container'>

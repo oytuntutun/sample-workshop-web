@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { deleteExperience } from '../../../../store/actions/user/user';
+import { deleteEducation } from '../../../../store/actions/user/user';
 import EditEducation from './EditEducation';
 import MaterialIcon from 'material-icons-react'
 
@@ -9,12 +9,24 @@ class Education extends Component {
     editing: false
   }
 
+  handleDelete = () => {
+    const { deleteEducation } = this.props
+      deleteEducation(this.props.education._id)
+  }
+
+  handleEdit = () => {
+    const { editing } = this.state
+    this.setState({ editing: !editing})
+  }
+
+
   render() {
     const { editing } = this.state
     const { education } = this.props
-    const { currentlyStudying, endedAt, school } = education
+    const { currentlyStudying, endedAt } = education
 
     if (!editing) {
+      console.log(education)
       return (
         <div className='experience-container'>
           <div className='experience-header'>
@@ -24,8 +36,9 @@ class Education extends Component {
           </div>
 
           <div className='experience-content'>
-            <p>{education.title}</p>
+            <p>{education.division}</p>
             <p>{education.location}</p>
+            <p>{education.degree}</p>
             <p>
               {education.startedAt} -
               {
@@ -52,8 +65,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteExperience: payload => {
-      dispatch(deleteExperience(payload))
+    deleteEducation: payload => {
+      dispatch(deleteEducation(payload))
     }
   };
 };
