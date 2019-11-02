@@ -85,3 +85,13 @@
   text-align: center;
   opacity: 0.5
 }
+
+@media only screen and (max-width: 600px) {
+  .login-container {
+    max-width: none;
+  }
+
+  .page-container {
+    background-color: azure
+  }
+}

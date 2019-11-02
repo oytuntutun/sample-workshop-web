@@ -32,7 +32,8 @@ class AddEducation extends React.Component {
       startedAt,
       endedAt,
       currentlyStudying,
-      location
+      location,
+      description
     } = this.state
 
     this.props.addEducation({
@@ -42,7 +43,8 @@ class AddEducation extends React.Component {
       startedAt,
       endedAt,
       currentlyStudying,
-      location
+      location,
+      description
     })
     this.handleAddEducation()
   }
@@ -52,6 +54,8 @@ class AddEducation extends React.Component {
       adding,
       currentlyStudying
     } = this.state
+
+    console.log(this.state)
 
     if (!adding) {
       return (
@@ -83,9 +87,20 @@ class AddEducation extends React.Component {
           <span>Division?</span>
           <input id='division' placeholder='What did you study?' onChange={this.handleChange} />
         </div>
+
+        <div className='basic-info-sections'>
+          <span>Where was it?</span>
+          <input id='location' placeholder='Where did you study?' onChange={this.handleChange} />
+        </div>
+
+        <div className='basic-info-sections'>
+          <span>Brief description</span>
+          <input id='description' placeholder='Brief explanation?' onChange={this.handleChange} />
+        </div>
+
         <div className='basic-info-sections'>
           <span>Degree?</span>
-          <input id='degree' placeholder='Where was it?' onChange={this.handleChange} />
+          <input id='degree' placeholder='Graduation score?' onChange={this.handleChange} />
         </div>
 
         <div className='basic-info-sections'>

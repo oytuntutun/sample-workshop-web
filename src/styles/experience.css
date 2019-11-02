@@ -6,13 +6,29 @@
 }
 
 .experience-wrapper {
-  padding: 30px 30px;
+  padding: 15px 30px;
   position: relative;
 }
 
 .experience-wrapper span {
   margin-left: 10px;
   font-size: 23px;
+}
+
+.experience-area {
+  border-bottom: 2px solid rgb(222, 222, 222, 0.5)
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(222, 222, 222, .5)
+}
+
+.content-container p:nth-child(1) {
+  min-width: 140px
 }
 
 #background-label {
@@ -74,4 +90,22 @@ margin-left: 15px
 .experience-content {
   background-color: white;
   margin: 0 15px 15px
+}
+
+@media only screen and (max-width: 600px) {
+  .header-wrapper {
+    padding: 3px !important
+  }
+
+  .header-wrapper div {
+    padding-left: 5px
+  }
+
+  .button-container {
+    min-width: unset
+  }
+
+  .experience-wrapper {
+    padding: 5px 15px
+  }
 }

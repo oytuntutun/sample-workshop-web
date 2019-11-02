@@ -8,7 +8,8 @@ class BasicInfo extends React.Component {
     title: '',
     company: '',
     surname: '',
-    notValid: false
+    notValid: false,
+    photo: ''
   }
 
   handleChange = e => {
@@ -50,7 +51,14 @@ class BasicInfo extends React.Component {
           <input id='company' placeholder='enter your company name' onChange={this.handleChange} />
         </div>
         <div className='basic-info-sections'>
-          <input required type="file" name="fileToUpload" multiple data-preview-to="#preview" />
+          <input
+            required
+            type="file"
+            name="fileToUpload"
+            multiple
+            data-preview-to="#preview"
+            onChange={(e) => console.log(e.target.files)} 
+          />
           <div id='preview'></div>
         </div>
         {notValid &&

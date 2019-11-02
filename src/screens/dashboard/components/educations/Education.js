@@ -36,14 +36,30 @@ class Education extends Component {
           </div>
 
           <div className='experience-content'>
-            <p>{education.division}</p>
-            <p>{education.location}</p>
-            <p>{education.degree}</p>
+            <div className='content-container'>
+              <p>Division:</p>
+              <p>{education.division}</p>
+            </div>
+
+            <div className='content-container'>
+              <p>Brief description:</p>
+              <p>{education.description}</p>
+            </div>
+
+            <div className='content-container'>
+              <p>Location: </p>
+              <p>{education.location}</p>
+            </div>
+
+            <div className='content-container'>
+              <p>Graduation degree: </p>
+              <p>{education.degree}</p>
+            </div>
             <p>
               {education.startedAt} -
               {
                 currentlyStudying
-                ? ' currentlyWorking'
+                ? ' Currently studying'
                 : endedAt
               }
             </p>

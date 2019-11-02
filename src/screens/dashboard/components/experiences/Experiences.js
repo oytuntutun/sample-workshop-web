@@ -5,7 +5,7 @@ import AddExperience from './AddExperience'
 
 const Experiences = ({ experience }) => {
   return (
-    <div>
+    <div className='experience-area'>
 
       <AddExperience />
       {(experience &&
