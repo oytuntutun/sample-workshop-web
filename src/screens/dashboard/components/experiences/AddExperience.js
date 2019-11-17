@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addExperience } from '../../../../store/actions/user/user'
 import MaterialIcon from 'material-icons-react'
+import Tips from './Tips'
 
 import '../../../../styles/experience.css'
 
@@ -14,13 +15,27 @@ class AddExperience extends Component {
     startedAt: '2019',
     endedAt: '',
     currentlyWorking: false,
-    location: ''
+    location: '',
+    showTips: false
   }
 
 
   handleAddExperience = () => {
     const { adding } = this.state
     this.setState({adding: !adding})
+  }
+
+  handleTemplate = (template) => {
+    const { description } = this.state
+    console.log(template)
+    if(description.length) {
+      this.setState({ description: `${description}, ${template}` })
+    } else
+    this.setState({ description: description + template })
+  }
+
+  closeTips = () => {
+    this.setState({showTips: false})
   }
 
   handleChange = e => {
@@ -51,8 +66,8 @@ class AddExperience extends Component {
   }
 
   render() {
-    const { adding, currentlyWorking } = this.state
-
+    const { adding, currentlyWorking, showTips, description } = this.state
+    console.log(this.state)
     if (!adding) {
       return (
         <div className='experience-wrapper'>
@@ -68,7 +83,6 @@ class AddExperience extends Component {
               Add Experience
             </button>
           </div>
-
         </div>
       )
     }
@@ -89,8 +103,16 @@ class AddExperience extends Component {
           <input id='location' placeholder='Where was it?' onChange={this.handleChange} />
         </div>
         <div className='basic-info-sections'>
-          <span>Job Description?</span>
-          <textarea id='description' placeholder='What did you do?' onChange={this.handleChange} />
+          <div>
+            <div id='tips'>
+              <span>Job Description?</span>
+              <MaterialIcon onClick={()=> this.setState({showTips: true})} icon='gesture' size={24} />
+            </div>
+            {showTips &&
+              <Tips handleTemplate={this.handleTemplate} closeTips={this.closeTips} />
+            }
+          </div>
+          <textarea value={description} id='description' placeholder='What did you do?' onChange={this.handleChange} />
         </div>
         <div className='basic-info-sections'>
           <span>Started At?</span>

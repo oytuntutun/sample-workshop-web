@@ -92,6 +92,41 @@ margin-left: 15px
   margin: 0 15px 15px
 }
 
+
+/* Tips Area */
+
+.tips-wrapper {
+  height:  50vh;
+  width: 50vw;
+  max-width: 400px;
+  position: absolute;
+  box-shadow: #dedede;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  border-radius: 10px;
+  z-index: 99999;
+  top: 60px;
+  box-shadow: 5px 5px 5px 5px #888888;
+  background-color: white;
+}
+
+#close-tips {
+  position: absolute;
+  cursor: pointer;
+  right: 15px;
+  top: 15px;
+}
+
+#tips {
+  cursor: pointer;
+  align-items: center;
+  display: flex
+}
+
+/* Tips Area End */
+
 @media only screen and (max-width: 600px) {
   .header-wrapper {
     padding: 3px !important

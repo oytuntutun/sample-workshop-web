@@ -36,6 +36,7 @@ class Experience extends Component {
 
           <div className='experience-content'>
             <p>{experience.title}</p>
+            <p>{experience.description}</p>
             <p>{experience.location}</p>
             <p>
               {experience.startedAt} -
