@@ -2,7 +2,7 @@ import axios from 'axios'
 import { getToken } from './'
 import { store } from '../store'
 
-const API_URL = 'https://sample-workshop-server.herokuapp.com/'
+const API_URL = 'https://cors-anywhere.herokuapp.com/https://sample-workshop-server.herokuapp.com'
 // const API_URL = 'http://localhost:4000'
 
 // set headers
