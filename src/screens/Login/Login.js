@@ -32,8 +32,8 @@ class Login extends React.Component {
   register = async () => {
     const { email, password } = this.state
     const { loginSuccessful, user } = this.props
-
-    await axios.post('http://sample-workshop-server.herokuapp.com/users/signup', {email, password})
+    https://cors-anywhere.herokuapp.com/https://joke-api-strict-cors.appspot.com/jokes/random
+    await axios.post('https://cors-anywhere.herokuapp.com/https://sample-workshop-server.herokuapp.com/users/signup', {email, password})
     if(user && user._id) loginSuccessful()
   }
 
