@@ -33,7 +33,7 @@ class Login extends React.Component {
     const { email, password } = this.state
     const { loginSuccessful, user } = this.props
 
-    await axios.post('http://localhost:4000/users/signup', {email, password})
+    await axios.post('https://sample-workshop-server.herokuapp.com/users/signup', {email, password})
     if(user && user._id) loginSuccessful()
   }
 
