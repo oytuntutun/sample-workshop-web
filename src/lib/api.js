@@ -2,8 +2,8 @@ import axios from 'axios'
 import { getToken } from './'
 import { store } from '../store'
 
-// const API_URL = 'http://192.168.0.102:4000'
-const API_URL = 'http://localhost:4000'
+const API_URL = 'https://sample-workshop-server.herokuapp.com/'
+// const API_URL = 'http://localhost:4000'
 
 // set headers
 const setHeaders = async () => {
