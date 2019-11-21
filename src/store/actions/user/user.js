@@ -27,7 +27,7 @@ export const saveInformation = payload => {
     if (!res) return
 
     dispatch({
-      type: 'START_REQUEST',
+      type: 'ADD_BASIC_INFO',
       payload
     })
   }

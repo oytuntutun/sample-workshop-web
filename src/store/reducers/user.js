@@ -35,7 +35,7 @@ const user = (state = {experiences: [], education: [] }, action) => {
         loginAttempt: false
       }
 
-    case 'START_REQUEST':
+    case 'ADD_BASIC_INFO':
       return {
         ...state,
         ...action.payload ,

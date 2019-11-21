@@ -8,8 +8,8 @@ import '../../styles/login.css'
 
 class Login extends React.Component {
   state = {
-    email: 'oytun',
-    password: 'qwe',
+    email: '',
+    password: '',
     disabled: true
   }
 
@@ -60,7 +60,7 @@ class Login extends React.Component {
             id='email'
             label='E-mail'
             value={email}
-            placeholder='oytun'
+            placeholder='Email'
             type='email'
             onChange={this.handleInput}
           />
@@ -68,8 +68,8 @@ class Login extends React.Component {
             id='password'
             label='Password'
             value={password}
-            placeholder='qwe'
-            // type='password'
+            placeholder='Password'
+            type='password'
             onChange={this.handleInput}
           />
         {error && <h3>did you mean to register?</h3> }
@@ -90,7 +90,6 @@ class Login extends React.Component {
           </div>
         </div>
         <div className='information-area'>
-          <span>admin</span><br /> username: oytun, pw: qwe <br />
           <span>testuser</span><br /> username: testuser, pw: qwe
         </div>
       </div>
