@@ -61,7 +61,7 @@
 }
 
 #currentlyWorking {
-margin-left: 15px
+  margin-left: 15px
 }
 
 #stillWorking {
@@ -140,7 +140,15 @@ margin-left: 15px
     min-width: unset
   }
 
+  .tips-wrapper {
+    width: 80vw
+  }
+
   .experience-wrapper {
     padding: 5px 15px
+  }
+
+  #currentlyWorking {
+  min-width: unset
   }
 }

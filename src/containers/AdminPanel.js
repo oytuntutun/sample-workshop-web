@@ -9,11 +9,6 @@ import {
 
 
 class AdminPanel extends Component {
-
-  componentDidMount() {
-
-  }
-
   render() {
     return (
       <main className='admin-container'>

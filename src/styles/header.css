@@ -97,4 +97,18 @@
   .basic-info-container {
     width: 100%
   }
+
+  #menu-icon {
+
+  }
+
+  .header-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .button-container {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
