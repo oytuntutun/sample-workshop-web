@@ -17,16 +17,23 @@ class Login extends React.Component {
     this.props.setInitial()
   }
 
+
+  validateEmail = (email) => {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
+  }
+
   isValid = () => {
     const { email, password } = this.state
-    if(email.length < 5 || password.length < 5) {
-      this.setState({ disabled: true })
+
+    if(this.validateEmail(email)) {
+      this.setState({ disabled: false })
     }
-    else this.setState({ disabled: false })
+    else this.setState({ disabled: true })
   }
 
   handleInput = (e) => {
-    this.setState({ [e.target.id]: e.target.value}, ()=> this.isValid())
+    this.setState({ [e.target.id]: e.target.value}, () => this.isValid())
   }
 
   register = async () => {
@@ -51,7 +58,7 @@ class Login extends React.Component {
     if(this.props.loading) {
       return <div>loading</div>
     }
-
+console.log(this.state)
     return (
       <div className='page-container'>
         <div className='login-container'>
@@ -78,6 +85,7 @@ class Login extends React.Component {
               type='submit'
               onClick={this.register}
               className={`${disabled ? 'deactivated' : ''}`}
+              disabled={disabled}
             >
               Register
             </button>
