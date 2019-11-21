@@ -75,7 +75,7 @@ class DashBoard extends React.Component {
       surname,
     } = this.props.state
 
-    const filename  = `${name}${surname}.pdf`
+    const filename  = `${name ? name : 'template'}${surname ? surname : ''}.pdf`
 
     html2canvas(document.querySelector('#exportThisNode'), {scale: 2}).then(canvas => {
       let pdf = new jsPDF('p', 'mm', 'a4');
