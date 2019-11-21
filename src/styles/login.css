@@ -72,7 +72,8 @@
 }
 
 .deactivated {
-  background-color: red !important
+  background-color: red !important;
+  opacity: 0.2
 }
 
 .information-area {

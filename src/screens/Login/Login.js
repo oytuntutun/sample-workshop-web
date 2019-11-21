@@ -26,7 +26,7 @@ class Login extends React.Component {
   isValid = () => {
     const { email, password } = this.state
 
-    if(this.validateEmail(email)) {
+    if(this.validateEmail(email) && password.length >= 3) {
       this.setState({ disabled: false })
     }
     else this.setState({ disabled: true })
@@ -38,10 +38,13 @@ class Login extends React.Component {
 
   register = async () => {
     const { email, password } = this.state
-    const { loginSuccessful, user } = this.props
+    const { loginSuccessful, user, login } = this.props
 
-    await axios.post('https://cors-anywhere.herokuapp.com/https://sample-workshop-server.herokuapp.com/users/signup', {email, password})
-    if(user && user._id) loginSuccessful()
+    const res = await axios.post('https://cors-anywhere.herokuapp.com/https://sample-workshop-server.herokuapp.com/users/signup', {email, password})
+    if(res) {
+
+    await login({ email, password })
+    }
   }
 
   login = async () => {
@@ -58,7 +61,7 @@ class Login extends React.Component {
     if(this.props.loading) {
       return <div>loading</div>
     }
-console.log(this.state)
+    console.log(this.state)
     return (
       <div className='page-container'>
         <div className='login-container'>
@@ -78,7 +81,7 @@ console.log(this.state)
             type='password'
             onChange={this.handleInput}
           />
-        {error && <h3>did you mean to register?</h3> }
+          {error && <h3>did you mean to register?</h3> }
 
           <div className='button-container'>
             <button
@@ -91,6 +94,8 @@ console.log(this.state)
             </button>
             <button
               onClick={()=>this.props.login({email, password})}
+              className={`${disabled ? 'deactivated' : ''}`}
+              disabled={disabled}
             >
               Login
             </button>
