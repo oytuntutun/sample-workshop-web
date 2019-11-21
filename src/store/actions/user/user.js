@@ -15,7 +15,6 @@ export const login = payload => {
         localStorage.setItem('token', res.data.token)
       })
       .catch(err => {
-        console.log('error',err)
         dispatch(loginFailed(err))
       })
   }
@@ -36,9 +35,8 @@ export const saveInformation = payload => {
 export const addExperience = payload => {
   return async dispatch => {
     const res = await Api.post('/users/addExperience', payload)
-    console.log('res',res)
     if(!res) return
-    console.log('res id',res.experience._id)
+
     dispatch({
       type: 'ADD_EXPERIENCE',
       payload: res.experience
@@ -49,7 +47,6 @@ export const addExperience = payload => {
 export const deleteExperience = payload => {
   return async dispatch => {
     const res = await Api.delete('/users/deleteExperience',  {id: payload})
-    console.log('server res',res)
     if (!res) return
 
     dispatch({

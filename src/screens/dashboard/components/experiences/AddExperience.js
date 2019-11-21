@@ -67,7 +67,7 @@ class AddExperience extends Component {
 
   render() {
     const { adding, currentlyWorking, showTips, description } = this.state
-    console.log(this.state)
+
     if (!adding) {
       return (
         <div className='experience-wrapper'>

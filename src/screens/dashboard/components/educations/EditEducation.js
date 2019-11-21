@@ -19,7 +19,7 @@ class EditEducation extends Component {
   };
 
   render() {
-    console.log(this.state)
+
     const { handleEdit } = this.props
     const {
       currentlyStudying,

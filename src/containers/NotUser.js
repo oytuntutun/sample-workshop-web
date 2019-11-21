@@ -7,7 +7,6 @@ import { Login } from '../screens'
 // import Intro from 'screens/DashBoardPages/Intro'
 
 const NotUser = ({ user }) => {
-  console.log('not user')
   return (
     <Switch>
       <Route path='/' component={Login} />

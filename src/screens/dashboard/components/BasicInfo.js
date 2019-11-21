@@ -41,7 +41,7 @@ class BasicInfo extends React.Component {
   render () {
     const { notValid } = this.state
     const { handleEdit } = this.props
-    console.log(this.state)
+    
     return (
       <div className='basic-info-container'>
         <h3>Fill in your basic information:</h3>

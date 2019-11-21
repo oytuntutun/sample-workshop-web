@@ -41,8 +41,7 @@ class Login extends React.Component {
     const { email, password } = this.state
     const { login } = this.props
 
-    const res = await login({ email, password })
-    console.log(res)
+    await login({ email, password })
   }
 
   render() {

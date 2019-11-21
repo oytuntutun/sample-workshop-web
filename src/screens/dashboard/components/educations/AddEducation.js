@@ -55,8 +55,6 @@ class AddEducation extends React.Component {
       currentlyStudying
     } = this.state
 
-    console.log(this.state)
-
     if (!adding) {
       return (
         <div className='experience-wrapper'>

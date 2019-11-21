@@ -16,7 +16,6 @@ class DashBoard extends React.Component {
   print = () => {
     const {
       company,
-      email,
       name,
       surname,
       title,
@@ -24,16 +23,14 @@ class DashBoard extends React.Component {
       experience
     } = this.props.state
 
-
-
-  	const filename  = `${name}${surname}.pdf`
+  	const filename  = `${name ? name : 'template'}${surname ? surname : ''}.pdf`
       let purepdf = new jsPDF({fontSize: 14})
 
-      purepdf.setFontSize(16).text(`${name} ${surname} resumé`, 10, 10)
-      purepdf.setFontSize(12).text(`is currently working as ${title} at ${company} `, 10, 15)
+      purepdf.setFontSize(16).text(`${name ? name : ''} ${surname ? surname : ''} resumé`, 10, 10)
+      purepdf.setFontSize(12).text(`${company ? 'is currently working in ' + company : ''}`, 10, 15)
       purepdf.setFontSize(14).text('Experiences', 10, 45)
 
-      experience.map((experience, i) => {
+      experience.forEach((experience, i) => {
         const {
           currentlyWorking,
           startedAt,
@@ -43,6 +40,7 @@ class DashBoard extends React.Component {
           title,
           company
         } = experience
+
         purepdf.setFontSize(12).text(`${currentlyWorking ? 'working' : 'worked'} as a ${title} at ${company} (${startedAt} - ${currentlyWorking ? 'still working' : endedAt })`, 10, 30 + (i+1) * 30)
         purepdf.setFontSize(10).text(`${location}`, 10, ((i+1) * 30) + 35)
         purepdf.setFontSize(10).text(`${description}`, 10, ((i+1) * 30) + 40)
@@ -50,34 +48,31 @@ class DashBoard extends React.Component {
 
       purepdf.setFontSize(14).text('Educations', 10, 155)
 
-      education.map((education, i) => {
+      education.forEach((education, i) => {
         const {
           currentlyStudying,
           startedAt,
           endedAt,
           location,
-          division,
           school,
           degree,
-          description
+          description,
+          division
         } = education
         purepdf.setFontSize(12).text(`${currentlyStudying ? 'Studying' : 'studied'} at ${school} (${startedAt} - ${currentlyStudying ? 'still studying' : endedAt })`, 10, 140 + (i+1) * 30)
         purepdf.setFontSize(10).text(`${location}`, 10, 145 + (i+1) * 30)
-        purepdf.setFontSize(10).text(`${description}`, 10, 150 + (i+1) * 30)
+        purepdf.setFontSize(10).text(`${division}`, 10, 150 + (i+1) * 30)
+        purepdf.setFontSize(10).text(`${description}`, 10, 155 + (i+1) * 30)
+        purepdf.setFontSize(10).text(`${degree}`, 10, 160 + (i+1) * 30)
       })
 
-      purepdf.save('a4.pdf')
+      purepdf.save(filename)
   }
 
   takeSS = () => {
     const {
-      company,
-      email,
       name,
       surname,
-      title,
-      education,
-      experience
     } = this.props.state
 
     const filename  = `${name}${surname}.pdf`
@@ -118,7 +113,6 @@ class DashBoard extends React.Component {
 }
 
   render () {
-    console.log(this.props.state)
     const { loading } = this.props.state
 
     if(loading) {

@@ -26,7 +26,6 @@ class Education extends Component {
     const { currentlyStudying, endedAt } = education
 
     if (!editing) {
-      console.log(education)
       return (
         <div className='experience-container'>
           <div className='experience-header'>
