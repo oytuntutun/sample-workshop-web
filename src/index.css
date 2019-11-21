@@ -15,7 +15,7 @@ body {
   border-radius: 15px;
   background-color: rgb(252, 111, 3);
   position: absolute;
-  bottom: 30px;
+  top: 170px;
   animation-name: global-error;
   animation-duration: 8s;
   cursor: pointer;

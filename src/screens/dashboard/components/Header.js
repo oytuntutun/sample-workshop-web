@@ -28,7 +28,7 @@ handleEdit = () => {
 
   render () {
     const { editing } = this.state
-    const { user } = this.props
+    const { user, exportToPDF, logout, takeSS } = this.props
 
     return (
       <div>
@@ -43,7 +43,15 @@ handleEdit = () => {
               {editing ? 'cancel' : 'edit'}
             </button>
 
-            <button onClick={this.props.logout}>
+            <button onClick={exportToPDF}>
+              export to PDF
+            </button>
+
+            <button onClick={takeSS} id='export-button'>
+              Screenshot to PDF
+            </button>
+
+            <button onClick={logout}>
               logout
             </button>
 

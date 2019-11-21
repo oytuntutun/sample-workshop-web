@@ -148,7 +148,22 @@
     padding: 5px 15px
   }
 
+
+  .experience-container {
+    margin: 0 3px;
+    margin-bottom: 15px
+  }
+
+  .experience-content {
+    margin: 0 10px 15px
+  }
+
+
   #currentlyWorking {
   min-width: unset
+  }
+
+  #export-button {
+    display: none;
   }
 }

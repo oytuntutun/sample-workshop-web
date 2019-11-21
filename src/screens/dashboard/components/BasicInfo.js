@@ -30,7 +30,7 @@ class BasicInfo extends React.Component {
   saveInformation = () => {
     const { name, title, company, surname, notValid, photo } = this.state
     const { handleEdit } = this.props
-    
+
     if(name.length > 3 && title.length > 3 && company.length > 3 && surname.length > 3) {
     this.props.saveInformation({name, title, company, surname, photo})
     handleEdit()
@@ -39,7 +39,7 @@ class BasicInfo extends React.Component {
   }
 
   render () {
-    const { notValid, photo } = this.state
+    const { notValid } = this.state
     const { handleEdit } = this.props
     console.log(this.state)
     return (
@@ -76,7 +76,7 @@ class BasicInfo extends React.Component {
           <button onClick={handleEdit}>cancel</button>
         </div>
         <div className='profile-photo-container'>
-          <img id="output_image"/>
+          <img id="output_image" alt='imagePreview'/>
         </div>
       </div>
     )
