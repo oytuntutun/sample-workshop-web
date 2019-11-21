@@ -40,7 +40,7 @@ handleEdit = () => {
           </div>
           <div className='button-container'>
             <button onClick={this.handleEdit}>
-              {editing ? 'cancel' : 'edit'}
+              {editing ? 'cancel' : 'Add information'}
             </button>
 
             <button onClick={exportToPDF}>
