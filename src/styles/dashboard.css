@@ -5,6 +5,17 @@
   padding-bottom: 15px
 }
 
+#output_image {
+  height: 200px;
+  width: auto;
+}
+
+.profile-photo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
 @media only screen and (max-width: 600px) {
   .content-area {
     margin: 5px auto;

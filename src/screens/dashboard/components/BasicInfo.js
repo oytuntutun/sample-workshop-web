@@ -9,7 +9,18 @@ class BasicInfo extends React.Component {
     company: '',
     surname: '',
     notValid: false,
-    photo: ''
+  }
+
+  previewImage = (event) => {
+   let reader = new FileReader()
+
+   reader.onload = () => {
+    let output = document.getElementById('output_image')
+    output.src = reader.result;
+   }
+
+
+   reader.readAsDataURL(event.target.files[0])
   }
 
   handleChange = e => {
@@ -17,20 +28,20 @@ class BasicInfo extends React.Component {
   }
 
   saveInformation = () => {
-    const { name, title, company, surname, notValid } = this.state
+    const { name, title, company, surname, notValid, photo } = this.state
     const { handleEdit } = this.props
+    
     if(name.length > 3 && title.length > 3 && company.length > 3 && surname.length > 3) {
-    this.props.saveInformation({name, title, company, surname})
+    this.props.saveInformation({name, title, company, surname, photo})
     handleEdit()
   }
     this.setState({notValid: !notValid})
-
   }
 
   render () {
-    const { notValid } = this.state
+    const { notValid, photo } = this.state
     const { handleEdit } = this.props
-
+    console.log(this.state)
     return (
       <div className='basic-info-container'>
         <h3>Fill in your basic information:</h3>
@@ -53,13 +64,9 @@ class BasicInfo extends React.Component {
         <div className='basic-info-sections'>
           <input
             required
-            type="file"
-            name="fileToUpload"
-            multiple
-            data-preview-to="#preview"
-            onChange={(e) => console.log(e.target.files)} 
+            type='file'
+            onChange={(e)=>this.previewImage(e)}
           />
-          <div id='preview'></div>
         </div>
         {notValid &&
           <span className='error-message'>please enter valid data</span>
@@ -67,6 +74,9 @@ class BasicInfo extends React.Component {
         <div className='basic-info-sections buttons'>
           <button onClick={this.saveInformation}>save</button>
           <button onClick={handleEdit}>cancel</button>
+        </div>
+        <div className='profile-photo-container'>
+          <img id="output_image"/>
         </div>
       </div>
     )

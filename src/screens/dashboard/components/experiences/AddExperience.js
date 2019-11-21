@@ -27,7 +27,7 @@ class AddExperience extends Component {
 
   handleTemplate = (template) => {
     const { description } = this.state
-    console.log(template)
+
     if(description.length) {
       this.setState({ description: `${description}, ${template}` })
     } else
