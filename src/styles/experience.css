@@ -166,4 +166,13 @@
   #export-button {
     display: none;
   }
+
+  #description-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #tips {
+    align-self: baseline;
+  }
 }

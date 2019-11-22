@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { saveInformation } from '../../../store/actions/user/user'
 
+
 class BasicInfo extends React.Component {
   state = {
     name: '',
@@ -41,7 +42,7 @@ class BasicInfo extends React.Component {
   render () {
     const { notValid } = this.state
     const { handleEdit } = this.props
-    
+
     return (
       <div className='basic-info-container'>
         <h3>Fill in your basic information:</h3>

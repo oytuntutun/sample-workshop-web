@@ -6,13 +6,24 @@ import Tips from './Tips'
 
 import '../../../../styles/experience.css'
 
+const tips = [
+  'I made frontend development',
+  'I made backend development',
+  'I made full-stack development'
+]
+
+const titleTips = [
+  'JS developer',
+  'React developer'
+]
+
 class AddExperience extends Component {
   state = {
     adding: false,
     company: '',
     title: '',
     description: '',
-    startedAt: '2019',
+    startedAt: '2015',
     endedAt: '',
     currentlyWorking: false,
     location: '',
@@ -32,6 +43,15 @@ class AddExperience extends Component {
       this.setState({ description: `${description}, ${template}` })
     } else
     this.setState({ description: description + template })
+  }
+
+  handleTitleTips = (template) => {
+    const { title } = this.state
+
+    if(title.length) {
+      this.setState({ title: `${title}, ${template}` })
+    } else
+    this.setState({ title: title + template })
   }
 
   closeTips = () => {
@@ -66,8 +86,8 @@ class AddExperience extends Component {
   }
 
   render() {
-    const { adding, currentlyWorking, showTips, description } = this.state
-
+    const { adding, currentlyWorking, showTips, description, startedAt, title } = this.state
+    console.log(this.state)
     if (!adding) {
       return (
         <div className='experience-wrapper'>
@@ -95,28 +115,34 @@ class AddExperience extends Component {
           <input id='company' placeholder='Company Name?' onChange={this.handleChange} />
         </div>
         <div className='basic-info-sections'>
-          <span>Job Title?</span>
-          <input id='title' placeholder='What was your title?' onChange={this.handleChange} />
+          <div>
+            <div id='tips'>
+              <span>Job Title?</span>
+              <MaterialIcon onClick={()=> this.setState({showTips: 'titleTips'})} icon='gesture' size={24} />
+            </div>
+            {showTips === 'titleTips' &&
+              <Tips handleTemplate={this.handleTitleTips} tips={titleTips} closeTips={this.closeTips} />
+            }
+          </div>
+          <input id='title' value={title} placeholder='What was your title?' onChange={this.handleChange} />
         </div>
         <div className='basic-info-sections'>
           <span>Location?</span>
           <input id='location' placeholder='Where was it?' onChange={this.handleChange} />
         </div>
-        <div className='basic-info-sections'>
-          <div>
+        <div className='basic-info-sections' id='description-container'>
             <div id='tips'>
               <span>Job Description?</span>
-              <MaterialIcon onClick={()=> this.setState({showTips: true})} icon='gesture' size={24} />
+              <MaterialIcon onClick={()=> this.setState({showTips: 'tips'})} icon='gesture' size={24} />
             </div>
-            {showTips &&
-              <Tips handleTemplate={this.handleTemplate} closeTips={this.closeTips} />
+            {showTips === 'tips' &&
+              <Tips handleTemplate={this.handleTemplate} tips={tips} closeTips={this.closeTips} />
             }
-          </div>
           <textarea value={description} id='description' placeholder='What did you do?' onChange={this.handleChange} />
         </div>
         <div className='basic-info-sections'>
           <span>Started At?</span>
-          <input id='startedAt' placeholder='When did you start?' onChange={this.handleChange} />
+          <input type='number' value={startedAt} id='startedAt' placeholder='When did you start?' onChange={this.handleChange} />
         </div>
         {!currentlyWorking &&
           <div className='basic-info-sections'>

@@ -7,9 +7,14 @@ const tips = [
   'I made full-stack development'
 ]
 
+const titleTips = [
+  'JS developer',
+  'React developer'
+]
+
 class Tips extends React.Component {
   render () {
-    const { handleTemplate, closeTips } = this.props
+    const { handleTemplate, closeTips, tips } = this.props
     return(
       <div className='tips-wrapper'>
         <MaterialIcon onClick={closeTips} icon='close' size={28} id='close-tips' />

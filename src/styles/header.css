@@ -39,6 +39,12 @@
   justify-content: space-between;
   width: 100%;
   position: relative;
+  transition: all 0.5s
+}
+
+.basic-info-sections:hover {
+  background-color: rgba(164, 155, 164, 0.44);
+  border-radius: 15px
 }
 
 .button-container {
@@ -61,6 +67,11 @@
 .buttons {
   justify-content: center;
 }
+
+.buttons:hover {
+  background-color: unset
+}
+
 
 .basic-info-sections span {
   margin: 10px;

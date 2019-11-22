@@ -68,14 +68,16 @@ input {
 textarea {
   margin: 10px;
   padding: 5px;
-  min-width: 180px;
+  min-width: 148px;
   margin-left: 10px;
   border-radius: 10px;
   border-color: gray;
   outline: none;
   font-size: 16px;
   font-weight: 400;
-  color: rgb(76, 78, 77)
+  color: rgb(76, 78, 77);
+  width: 46%;
+  min-height: 80px
 }
 
 p {
@@ -96,4 +98,11 @@ button {
 
 button:hover{
   background-color: rgb(51, 93, 218)
+}
+
+
+@media only screen and (max-width: 600px) {
+  textarea {
+    width: 87%;
+  }
 }
