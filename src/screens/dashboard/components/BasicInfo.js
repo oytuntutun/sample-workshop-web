@@ -10,16 +10,17 @@ class BasicInfo extends React.Component {
     company: '',
     surname: '',
     notValid: false,
+    photo: false
   }
 
   previewImage = (event) => {
+    this.setState({photo: true})
    let reader = new FileReader()
 
    reader.onload = () => {
     let output = document.getElementById('output_image')
     output.src = reader.result;
    }
-
 
    reader.readAsDataURL(event.target.files[0])
   }
@@ -40,7 +41,7 @@ class BasicInfo extends React.Component {
   }
 
   render () {
-    const { notValid } = this.state
+    const { notValid, photo } = this.state
     const { handleEdit } = this.props
 
     return (
@@ -76,9 +77,11 @@ class BasicInfo extends React.Component {
           <button onClick={this.saveInformation}>save</button>
           <button onClick={handleEdit}>cancel</button>
         </div>
-        <div className='profile-photo-container'>
-          <img id="output_image" alt='imagePreview'/>
-        </div>
+        {photo &&
+          <div className='profile-photo-container'>
+            <img id="output_image" alt='imagePreview'/>
+          </div>
+        }
       </div>
     )
   }
