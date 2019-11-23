@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addExperience } from '../../../../store/actions/user/user'
 import MaterialIcon from 'material-icons-react'
-import Tips from './Tips'
+import Tips from '../Tips'
 
 import '../../../../styles/experience.css'
 

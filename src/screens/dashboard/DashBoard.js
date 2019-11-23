@@ -18,7 +18,6 @@ class DashBoard extends React.Component {
       company,
       name,
       surname,
-      title,
       education,
       experience
     } = this.props.state

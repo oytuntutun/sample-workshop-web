@@ -1,17 +1,6 @@
 import React from 'react'
 import MaterialIcon from 'material-icons-react'
 
-const tips = [
-  'I made frontend development',
-  'I made backend development',
-  'I made full-stack development'
-]
-
-const titleTips = [
-  'JS developer',
-  'React developer'
-]
-
 class Tips extends React.Component {
   render () {
     const { handleTemplate, closeTips, tips } = this.props

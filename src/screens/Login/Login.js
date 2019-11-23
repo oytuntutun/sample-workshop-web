@@ -19,7 +19,7 @@ class Login extends React.Component {
 
 
   validateEmail = (email) => {
-      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      var re = /^(([^<>()\\\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
   }
 
@@ -38,7 +38,7 @@ class Login extends React.Component {
 
   register = async () => {
     const { email, password } = this.state
-    const { loginSuccessful, user, login } = this.props
+    const { login } = this.props
 
     const res = await axios.post('https://cors-anywhere.herokuapp.com/https://sample-workshop-server.herokuapp.com/users/signup', {email, password})
     if(res) {
