@@ -10,19 +10,20 @@ class BasicInfo extends React.Component {
     company: '',
     surname: '',
     notValid: false,
-    photo: false
+    photo: false,
+    darkmode: false
   }
 
   previewImage = (event) => {
     this.setState({photo: true})
-   let reader = new FileReader()
+    let reader = new FileReader()
 
-   reader.onload = () => {
+    reader.onload = () => {
     let output = document.getElementById('output_image')
     output.src = reader.result
-   }
+    }
 
-   reader.readAsDataURL(event.target.files[0])
+    reader.readAsDataURL(event.target.files[0])
   }
 
   handleChange = e => {
@@ -30,11 +31,11 @@ class BasicInfo extends React.Component {
   }
 
   saveInformation = () => {
-    const { name, title, company, surname, notValid, photo } = this.state
+    const { name, title, company, surname, notValid, photo, darkmode } = this.state
     const { handleEdit } = this.props
 
     if(name.length > 3 && title.length > 3 && company.length > 3 && surname.length > 3) {
-    this.props.saveInformation({name, title, company, surname, photo})
+    this.props.saveInformation({ name, title, company, surname, photo, darkmode })
     handleEdit()
   }
     this.setState({notValid: !notValid})
@@ -43,9 +44,12 @@ class BasicInfo extends React.Component {
   render () {
     const { notValid, photo } = this.state
     const { handleEdit } = this.props
+    const { darkmode } = this.props.state
 
     return (
-      <div className='basic-info-container'>
+      <div
+        className={`basic-info-container ${darkmode ? 'dark-basic-info-container' : ''}`}
+      >
         <h3>Fill in your basic information:</h3>
         <div className='basic-info-sections'>
           <span>what is your name?</span>
@@ -74,8 +78,8 @@ class BasicInfo extends React.Component {
           <span className='error-message'>please enter valid data</span>
         }
         <div className='basic-info-sections buttons'>
-          <button onClick={this.saveInformation}>save</button>
-          <button onClick={handleEdit}>cancel</button>
+          <button className={`${darkmode ? 'dark-button' : ''}`} onClick={this.saveInformation}>save</button>
+          <button className={`${darkmode ? 'dark-button' : ''}`} onClick={handleEdit}>cancel</button>
         </div>
         {photo &&
           <div className='profile-photo-container'>

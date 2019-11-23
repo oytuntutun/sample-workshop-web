@@ -9,6 +9,11 @@
   border-bottom: rgb(181, 173, 172) 3px solid;
 }
 
+.dark-header {
+  background-color: #242624;
+  color: white
+}
+
 .header-wrapper h2 {
   font-weight: 300
 }
@@ -27,10 +32,23 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  margin: auto;
+  margin: 10px auto;
   min-width: 320px;
   max-width: 400px;
   padding-bottom: 15px
+}
+
+.dark-basic-info-container {
+  background-color: #242624;
+  border-radius: 20px;
+  margin-top: 10px
+}
+
+.dark-basic-info-container span {
+  color: white !important
+}
+.dark-basic-info-container h3 {
+  color: white !important
 }
 
 .basic-info-sections {
@@ -84,6 +102,10 @@
   color: rgb(76, 78, 77)
 }
 
+.dark-basic-info-sections span {
+  color: white
+}
+
 
 .error-message {
   margin: 10px;
@@ -103,6 +125,50 @@
   font-weight: 500;
   color: rgb(76, 78, 77)
 }
+
+/* Toggler start */
+.toggle-click-area {
+  height: 40px;
+  width: 60px;
+  cursor: pointer;
+}
+
+.toggle-container {
+  height: 5px;
+  width: 30px;
+  background-color: #dedede;
+  position: relative;
+  z-index: 8888;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: all 1.5s;
+  margin-left: 15px;
+}
+
+.slide-container {
+  margin-left: 0
+}
+
+.toggle-button {
+  top:-12px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  position: absolute;
+  transition: all 1.5s
+}
+
+.toggle-button-dark {
+  left:-15px;
+}
+
+.toggle-button-light {
+  left: 15px;
+  filter: invert(100%);
+}
+/* Toggler end */
+
+
 #menu-icon{
   height: fit-content;
   width: fit-content;

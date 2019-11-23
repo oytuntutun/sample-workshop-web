@@ -8,9 +8,13 @@ import '../../styles/login.css'
 
 class Login extends React.Component {
   state = {
-    email: '',
-    password: '',
+    email: 'demouser@gmail.com',
+    password: 'qweqwe',
     disabled: true
+  }
+
+  componentDidMount(){
+    this.isValid()
   }
 
   componentWillMount(){
@@ -41,6 +45,7 @@ class Login extends React.Component {
     const { login } = this.props
 
     const res = await axios.post('https://cors-anywhere.herokuapp.com/https://sample-workshop-server.herokuapp.com/users/signup', {email, password})
+    // const res = await axios.post('http://localhost:4000/users/signup', {email, password})
     if(res) {
 
     await login({ email, password })
@@ -61,7 +66,7 @@ class Login extends React.Component {
     if(this.props.loading) {
       return <div>loading</div>
     }
-    console.log(this.state)
+
     return (
       <div className='page-container'>
         <div className='login-container'>
@@ -101,8 +106,11 @@ class Login extends React.Component {
             </button>
           </div>
         </div>
+        <span>Just click login for demo user</span>
         <div className='information-area'>
-          <span>testuser</span><br /> username: testuser, pw: qwe
+          <span>testuser</span>
+          <br />
+          <span> username: demouser, pw: qweqwe</span>
         </div>
       </div>
     )

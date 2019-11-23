@@ -114,18 +114,19 @@ class DashBoard extends React.Component {
 
   render () {
     const { loading } = this.props.state
+    const { darkmode } = this.props.state
 
     if(loading) {
       return <div>loading</div>
     }
 
     return (
-      <div className='page-wrapper' id='exportThisNode'>
+      <div className={`page-wrapper ${darkmode ? 'dark-area' : ''}`} id='exportThisNode'>
         <Header exportToPDF={this.print} takeSS={this.takeSS} />
         {this.handleGlobalError()}
         <div className='content-area'>
-          <Experiences />
-          <Educations />
+          <Experiences darkmode={darkmode} />
+          <Educations darkmode={darkmode} />
         </div>
       </div>
     )

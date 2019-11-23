@@ -8,6 +8,12 @@
 .experience-wrapper {
   padding: 15px 30px;
   position: relative;
+  margin-bottom: 8px
+}
+
+.dark-experience-wrapper {
+  background-color: #242624;
+  color: white
 }
 
 .experience-wrapper span {
@@ -16,7 +22,8 @@
 }
 
 .experience-area {
-  border-bottom: 2px solid rgb(222, 222, 222, 0.5)
+  border-bottom: 2px solid rgb(222, 222, 222, 0.5);
+
 }
 
 .content-container {
@@ -31,15 +38,21 @@
   min-width: 140px
 }
 
-#background-label {
+.background-label {
   position: absolute;
   margin-left: 0;
-  font-size: 14px;
+  font-size: 14px !important;
   top: 5px;
   right: 5px;
   background-color: lightgray;
   padding: 3px;
   border-radius: 5px
+}
+
+
+.dark-background-label {
+  color: white;
+  background-color: #505250
 }
 
 .content-wrapper {
@@ -77,6 +90,11 @@
   margin-bottom: 15px
 }
 
+.dark-experience-container {
+  background-color: #353635;
+  color: white
+}
+
 .experience-header {
   margin: 15px;
   display: flex;
@@ -90,6 +108,10 @@
 .experience-content {
   background-color: white;
   margin: 0 15px 15px
+}
+
+.dark-experience-content {
+  background-color: #505250
 }
 
 
@@ -110,6 +132,23 @@
   top: 60px;
   box-shadow: 5px 5px 5px 5px #888888;
   background-color: white;
+}
+
+.dark-tips-wrapper {
+  height:  50vh;
+  width: 50vw;
+  max-width: 400px;
+  position: absolute;
+  box-shadow: #dedede;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  border-radius: 10px;
+  z-index: 99999;
+  top: 60px;
+  box-shadow: 5px 5px 5px 5px #888888;
+  background-color: gray;
 }
 
 #close-tips {

@@ -54,28 +54,33 @@ class AddEducation extends React.Component {
       adding,
       currentlyStudying
     } = this.state
+    const { darkmode } = this.props.state
 
     if (!adding) {
       return (
-        <div className='experience-wrapper'>
-          <MaterialIcon icon='post_add' size={20} />
+        <div
+          className={`experience-wrapper ${darkmode ? 'dark-experience-wrapper' : ''}`}
+        >
+          <MaterialIcon icon='post_add' size={20} id={darkmode ? 'light-icons' : ''} />
           <span>
             Educations
           </span>
           <div>
             <button
               onClick={this.handleAddEducation}
+              className={`${darkmode ? 'dark-button' : ''}`}
             >
               Add Education
             </button>
           </div>
-
         </div>
       )
     }
 
     return (
-      <div className='basic-info-container'>
+      <div
+        className={`basic-info-container ${darkmode ? 'dark-basic-info-container' : ''}`}
+      >
         <h3>Fill in your school information:</h3>
         <div className='basic-info-sections'>
           <span>School name?</span>
@@ -118,8 +123,18 @@ class AddEducation extends React.Component {
         </div>
 
         <div className='basic-info-sections buttons'>
-          <button onClick={this.saveEducation}>save</button>
-          <button onClick={this.handleAddEducation}>cancel</button>
+          <button
+            onClick={this.saveEducation}
+            className={`${darkmode ? 'dark-button' : ''}`}
+          >
+            save
+          </button>
+          <button
+            onClick={this.handleAddEducation}
+            className={`${darkmode ? 'dark-button' : ''}`}
+          >
+            cancel
+          </button>
         </div>
       </div>
     )

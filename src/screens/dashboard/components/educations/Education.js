@@ -22,19 +22,33 @@ class Education extends Component {
 
   render() {
     const { editing } = this.state
-    const { education } = this.props
+    const { education, darkmode } = this.props
     const { currentlyStudying, endedAt } = education
 
     if (!editing) {
       return (
-        <div className='experience-container'>
+        <div
+          className={`experience-container ${darkmode ? 'dark-experience-container' : ''}`}
+        >
           <div className='experience-header'>
             <h4>{education.school}</h4>
-            <MaterialIcon icon='edit' size={20} onClick={()=>this.setState({editing: !editing})} />
-            <MaterialIcon icon='delete' size={20} onClick={()=>this.handleDelete()} />
+            <MaterialIcon
+              icon='edit'
+              size={20}
+              onClick={()=>this.setState({editing: !editing})}
+              color='gray'
+            />
+            <MaterialIcon
+              icon='delete'
+              size={20}
+              onClick={()=>this.handleDelete()}
+              color='gray'
+            />
           </div>
 
-          <div className='experience-content'>
+          <div
+            className={`experience-content ${darkmode ? 'dark-experience-content' : ''}`}
+          >
             <div className='content-container'>
               <p>Division:</p>
               <p>{education.division}</p>
@@ -69,7 +83,7 @@ class Education extends Component {
     }
 
     return (
-      <EditEducation handleEdit={this.handleEdit} education={education} />
+      <EditEducation handleEdit={this.handleEdit} education={education} darkmode={darkmode} />
     )
   }
 }

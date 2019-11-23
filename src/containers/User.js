@@ -6,10 +6,6 @@ import { DashBoard } from '../screens'
 
 
 class MainNavigation extends Component {
-  componentDidMount() {
-
-  }
-
   render() {
     // if server has admin role enable to enable
     // pass admin={admin} to dashboard

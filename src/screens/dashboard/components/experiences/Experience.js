@@ -22,30 +22,61 @@ class Experience extends Component {
 
   render() {
     const { editing } = this.state
-    const { experience } = this.props
+    const { experience, darkmode } = this.props
     const { currentlyWorking, endedAt } = experience
 
+    console.log(darkmode)
     if (!editing) {
       return (
-        <div className='experience-container'>
+        <div
+          className={`experience-container ${darkmode ? 'dark-experience-container' : ''}`}
+        >
           <div className='experience-header'>
             <h4>{experience.company}</h4>
-            <MaterialIcon icon='edit' size={20} onClick={()=>this.setState({editing: !editing})} />
-            <MaterialIcon icon='delete' size={20} onClick={()=>this.handleDelete()} />
+            <MaterialIcon
+              icon='edit'
+              size={20}
+              onClick={()=>this.setState({editing: !editing})}
+              color='gray'
+            />
+            <MaterialIcon
+              icon='delete'
+              size={20}
+              onClick={()=>this.handleDelete()}
+              color='gray'
+            />
           </div>
 
-          <div className='experience-content'>
-            <p>{experience.title}</p>
-            <p>{experience.description}</p>
-            <p>{experience.location}</p>
-            <p>
-              {experience.startedAt} -
-              {
-                currentlyWorking
-                ? ' currentlyWorking'
-                : endedAt
-              }
-            </p>
+          <div
+            className={`experience-content ${darkmode ? 'dark-experience-content' : ''}`}
+          >
+            <div className='content-container'>
+              <p>Title:</p>
+              <p>{experience.title}</p>
+            </div>
+
+            <div className='content-container'>
+              <p>Brief description:</p>
+              <p>{experience.description}</p>
+            </div>
+
+            <div className='content-container'>
+              <p>Location:</p>
+              <p>{experience.location}</p>
+            </div>
+
+            <div className='content-container'>
+              <p>When Started?:</p>
+              <p>
+                {experience.startedAt} -
+                {
+                  currentlyWorking
+                  ? ' currentlyWorking'
+                  : endedAt
+                }
+              </p>
+            </div>
+
           </div>
 
         </div>
@@ -53,7 +84,11 @@ class Experience extends Component {
     }
 
     return (
-      <EditExperience handleEdit={this.handleEdit} experience={experience} />
+      <EditExperience
+        handleEdit={this.handleEdit}
+        experience={experience}
+        darkmode={darkmode}
+      />
     )
   }
 }

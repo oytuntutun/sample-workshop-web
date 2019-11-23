@@ -87,17 +87,24 @@ class AddExperience extends Component {
 
   render() {
     const { adding, currentlyWorking, showTips, description, startedAt, title } = this.state
-    console.log(this.state)
+    const { darkmode } = this.props.state
     if (!adding) {
       return (
-        <div className='experience-wrapper'>
-          <span id='background-label'>Background</span>
-          <MaterialIcon icon='post_add' size={20} />
+        <div
+          className={`experience-wrapper ${darkmode ? 'dark-experience-wrapper' : ''}`}
+        >
+          <span
+            className={`background-label ${darkmode ? 'dark-background-label' : ''}`}
+          >
+          Background
+        </span>
+          <MaterialIcon icon='post_add' size={20} id={darkmode ? 'light-icons' : ''} />
           <span>
             Experiences
           </span>
           <div>
             <button
+              className={`${darkmode ? 'dark-button' : ''}`}
               onClick={this.handleAddExperience}
             >
               Add Experience
@@ -108,7 +115,9 @@ class AddExperience extends Component {
     }
 
     return (
-      <div className='basic-info-container'>
+      <div
+        className={`basic-info-container ${darkmode ? 'dark-basic-info-container' : ''}`}
+      >
         <h3>Fill in your company information:</h3>
         <div className='basic-info-sections'>
           <span>Company?</span>
@@ -118,10 +127,19 @@ class AddExperience extends Component {
           <div>
             <div id='tips'>
               <span>Job Title?</span>
-              <MaterialIcon onClick={()=> this.setState({showTips: 'titleTips'})} icon='gesture' size={24} />
+              <MaterialIcon
+                onClick={()=> this.setState({showTips: 'titleTips'})}
+                icon='gesture' size={24}
+                id={darkmode ? 'light-icons' : ''}
+              />
             </div>
             {showTips === 'titleTips' &&
-              <Tips handleTemplate={this.handleTitleTips} tips={titleTips} closeTips={this.closeTips} />
+              <Tips
+                handleTemplate={this.handleTitleTips}
+                tips={titleTips}
+                closeTips={this.closeTips}
+                darkmode={darkmode}
+              />
             }
           </div>
           <input id='title' value={title} placeholder='What was your title?' onChange={this.handleChange} />
@@ -133,10 +151,20 @@ class AddExperience extends Component {
         <div className='basic-info-sections' id='description-container'>
             <div id='tips'>
               <span>Job Description?</span>
-              <MaterialIcon onClick={()=> this.setState({showTips: 'tips'})} icon='gesture' size={24} />
+              <MaterialIcon
+                onClick={()=> this.setState({showTips: 'tips'})}
+                icon='gesture'
+                size={24}
+                id={darkmode ? 'light-icons' : ''}
+              />
             </div>
             {showTips === 'tips' &&
-              <Tips handleTemplate={this.handleTemplate} tips={tips} closeTips={this.closeTips} />
+              <Tips
+                handleTemplate={this.handleTemplate}
+                tips={tips}
+                closeTips={this.closeTips}
+                darkmode={darkmode}
+              />
             }
           <textarea value={description} id='description' placeholder='What did you do?' onChange={this.handleChange} />
         </div>
@@ -157,8 +185,18 @@ class AddExperience extends Component {
         </div>
 
         <div className='basic-info-sections buttons'>
-          <button onClick={this.saveExperience}>save</button>
-          <button onClick={this.handleAddExperience}>cancel</button>
+          <button
+            onClick={this.saveExperience}
+            className={`${darkmode ? 'dark-button' : ''}`}
+          >
+            save
+          </button>
+          <button
+            onClick={this.handleAddExperience}
+            className={`${darkmode ? 'dark-button' : ''}`}
+          >
+            cancel
+          </button>
         </div>
       </div>
     )

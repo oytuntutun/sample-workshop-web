@@ -2,16 +2,20 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Experience from './Experience'
 import AddExperience from './AddExperience'
+import '../../../../styles/experience.css'
 
-const Experiences = ({ experience }) => {
+const Experiences = props => {
+  const { darkmode, experience } = props
   return (
-    <div className='experience-area'>
+    <div
+      className={`experience-area ${darkmode ? 'dark-area' : ''}`}
+    >
 
       <AddExperience />
       {(experience &&
         experience.length &&
         experience.map((experience, index) => (
-          <Experience key={index} experience={experience} />
+          <Experience key={index} experience={experience} darkmode={darkmode} />
         ))) || <noscript />}
 
     </div>

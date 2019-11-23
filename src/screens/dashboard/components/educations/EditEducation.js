@@ -20,7 +20,8 @@ class EditEducation extends Component {
 
   render() {
 
-    const { handleEdit } = this.props
+    const { handleEdit, darkmode } = this.props
+
     const {
       currentlyStudying,
       school,
@@ -34,28 +35,49 @@ class EditEducation extends Component {
 
     return (
       <div className='basic-info-container'>
-        <div className='basic-info-sections'>
+        <div
+          className={`basic-info-sections ${darkmode ? 'dark-basic-info-sections' : ''}`}
+        >
+          <span>School Name:</span>
           <input id='school' value={school} placeholder='School' onChange={this.handleChange} />
         </div>
-        <div className='basic-info-sections'>
+        <div
+          className={`basic-info-sections ${darkmode ? 'dark-basic-info-sections' : ''}`}
+        >
+          <span>Division:</span>
           <input id='division' value={division} placeholder='What was your division?' onChange={this.handleChange} />
         </div>
-        <div className='basic-info-sections'>
+        <div
+          className={`basic-info-sections ${darkmode ? 'dark-basic-info-sections' : ''}`}
+        >
+          <span>Location:</span>
           <input id='location' value={location} placeholder='Where was it?' onChange={this.handleChange} />
         </div>
 
-        <div className='basic-info-sections'>
+        <div
+          className={`basic-info-sections ${darkmode ? 'dark-basic-info-sections' : ''}`}
+        >
+          <span>Degree:</span>
           <input id='degree' value={degree} placeholder='Your degree?' onChange={this.handleChange} />
         </div>
 
-        <div className='basic-info-sections'>
+        <div
+          className={`basic-info-sections ${darkmode ? 'dark-basic-info-sections' : ''}`}
+        >
+          <span>Additional information:</span>
           <textarea id='description' value={description} placeholder='What did you do?' onChange={this.handleChange} />
         </div>
-        <div className='basic-info-sections'>
+        <div
+          className={`basic-info-sections ${darkmode ? 'dark-basic-info-sections' : ''}`}
+        >
+          <span>When did you start?</span>
           <input id='startedAt' value={startedAt} placeholder='When did you start?' onChange={this.handleChange} />
         </div>
         {!currentlyStudying &&
-          <div className='basic-info-sections'>
+          <div
+            className={`basic-info-sections ${darkmode ? 'dark-basic-info-sections' : ''}`}
+          >
+            <span>When did it end?</span>
             <input id='endedAt' value={endedAt} placeholder='when did it end?' onChange={this.handleChange} />
           </div>
         }
@@ -66,8 +88,18 @@ class EditEducation extends Component {
         </div>
 
         <div className='basic-info-sections buttons'>
-          <button onClick={this.handleSubmit}>save</button>
-          <button onClick={handleEdit}>cancel</button>
+          <button
+            onClick={this.handleSubmit}
+            className={`${darkmode ? 'dark-button' : ''}`}
+          >
+            Save
+          </button>
+          <button
+            onClick={handleEdit}
+            className={`${darkmode ? 'dark-button' : ''}`}
+          >
+            Cancel
+          </button>
         </div>
       </div>
     )
