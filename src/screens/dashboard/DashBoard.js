@@ -45,6 +45,7 @@ class DashBoard extends React.Component {
         purepdf.setFontSize(10).text(`${description}`, 10, ((i+1) * 30) + 40)
       })
 
+      education.length &&
       purepdf.setFontSize(14).text('Educations', 10, 155)
 
       education.forEach((education, i) => {
