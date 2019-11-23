@@ -17,7 +17,7 @@ handleLogout = () => {
 }
 
 handleSection = (e) => {
-  const x = document.getElementById("options").value;
+  const x = document.getElementById("options").value
   this.setState({ section :x })
 }
 

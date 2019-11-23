@@ -25,4 +25,4 @@ class Tips extends React.Component {
   }
 }
 
-export default Tips;
+export default Tips

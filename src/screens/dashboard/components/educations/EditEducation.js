@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { editEducation } from '../../../../store/actions/user/user';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { editEducation } from '../../../../store/actions/user/user'
 
 class EditEducation extends Component {
   state = {
     ...this.props.education,
     currentlyStudying: false
-  };
+  }
 
   handleChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
+    this.setState({ [e.target.id]: e.target.value })
+  }
 
   handleSubmit = e => {
-    const { editEducation, handleEdit } = this.props;
-    editEducation(this.state);
-    handleEdit();
-  };
+    const { editEducation, handleEdit } = this.props
+    editEducation(this.state)
+    handleEdit()
+  }
 
   render() {
 
@@ -30,7 +30,7 @@ class EditEducation extends Component {
       startedAt,
       endedAt,
       degree
-    } = this.state;
+    } = this.state
 
     return (
       <div className='basic-info-container'>
@@ -70,23 +70,23 @@ class EditEducation extends Component {
           <button onClick={handleEdit}>cancel</button>
         </div>
       </div>
-    );
+    )
   }
 }
 
 const mapStateToProps = state => {
-  return {};
-};
+  return {}
+}
 
 const mapDispatchToProps = dispatch => {
   return {
     editEducation: payload => {
-      dispatch(editEducation(payload));
+      dispatch(editEducation(payload))
     }
-  };
-};
+  }
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditEducation);
+)(EditEducation)

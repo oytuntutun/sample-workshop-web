@@ -1,7 +1,7 @@
-import { connect } from 'react-redux';
-import React, { Component } from 'react';
-import { deleteEducation } from '../../../../store/actions/user/user';
-import EditEducation from './EditEducation';
+import { connect } from 'react-redux'
+import React, { Component } from 'react'
+import { deleteEducation } from '../../../../store/actions/user/user'
+import EditEducation from './EditEducation'
 import MaterialIcon from 'material-icons-react'
 
 class Education extends Component {
@@ -65,12 +65,12 @@ class Education extends Component {
           </div>
 
         </div>
-      );
+      )
     }
 
     return (
       <EditEducation handleEdit={this.handleEdit} education={education} />
-    );
+    )
   }
 }
 
@@ -83,10 +83,10 @@ const mapDispatchToProps = dispatch => {
     deleteEducation: payload => {
       dispatch(deleteEducation(payload))
     }
-  };
-};
+  }
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Education);
+)(Education)

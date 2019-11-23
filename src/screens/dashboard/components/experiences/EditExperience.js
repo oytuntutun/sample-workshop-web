@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { editExperience } from '../../../../store/actions/user/user';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { editExperience } from '../../../../store/actions/user/user'
 
 class EditExperience extends Component {
   state = {
     ...this.props.experience,
     currentlyWorking: false
-  };
+  }
 
   handleChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
+    this.setState({ [e.target.id]: e.target.value })
+  }
 
   handleSubmit = e => {
-    const { editExperience, handleEdit } = this.props;
-    editExperience(this.state);
-    handleEdit();
-  };
+    const { editExperience, handleEdit } = this.props
+    editExperience(this.state)
+    handleEdit()
+  }
 
   render() {
     const { handleEdit } = this.props
-    const { currentlyWorking, company, title, description, location, startedAt, endedAt } = this.state;
+    const { currentlyWorking, company, title, description, location, startedAt, endedAt } = this.state
     
     return (
       <div className='basic-info-container'>
@@ -55,23 +55,23 @@ class EditExperience extends Component {
           <button onClick={handleEdit}>cancel</button>
         </div>
       </div>
-    );
+    )
   }
 }
 
 const mapStateToProps = state => {
-  return {};
-};
+  return {}
+}
 
 const mapDispatchToProps = dispatch => {
   return {
     editExperience: payload => {
-      dispatch(editExperience(payload));
+      dispatch(editExperience(payload))
     }
-  };
-};
+  }
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditExperience);
+)(EditExperience)

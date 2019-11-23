@@ -77,11 +77,11 @@ class DashBoard extends React.Component {
     const filename  = `${name ? name : 'template'}${surname ? surname : ''}.pdf`
 
     html2canvas(document.querySelector('#exportThisNode'), {scale: 2}).then(canvas => {
-      let pdf = new jsPDF('p', 'mm', 'a4');
+      let pdf = new jsPDF('p', 'mm', 'a4')
 
-      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', -1, 0, 210, 210);
-      pdf.save(filename);
-    });
+      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', -1, 0, 210, 210)
+      pdf.save(filename)
+    })
   }
 
   handleLogout = () => {

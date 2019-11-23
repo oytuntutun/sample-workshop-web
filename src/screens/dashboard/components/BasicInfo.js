@@ -19,7 +19,7 @@ class BasicInfo extends React.Component {
 
    reader.onload = () => {
     let output = document.getElementById('output_image')
-    output.src = reader.result;
+    output.src = reader.result
    }
 
    reader.readAsDataURL(event.target.files[0])

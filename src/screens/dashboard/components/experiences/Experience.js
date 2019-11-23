@@ -1,28 +1,28 @@
-import { connect } from 'react-redux';
-import React, { Component } from 'react';
-import { deleteExperience } from '../../../../store/actions/user/user';
-import EditExperience from './EditExperience';
+import { connect } from 'react-redux'
+import React, { Component } from 'react'
+import { deleteExperience } from '../../../../store/actions/user/user'
+import EditExperience from './EditExperience'
 import MaterialIcon from 'material-icons-react'
 
 class Experience extends Component {
   state = {
     editing: false
-  };
+  }
 
 
   handleEdit = () => {
-    const { editing } = this.state;
+    const { editing } = this.state
     this.setState({ editing: !editing })
-  };
+  }
 
   handleDelete = () => {
     const { deleteExperience } = this.props
       deleteExperience(this.props.experience._id)
-  };
+  }
 
   render() {
-    const { editing } = this.state;
-    const { experience } = this.props;
+    const { editing } = this.state
+    const { experience } = this.props
     const { currentlyWorking, endedAt } = experience
 
     if (!editing) {
@@ -49,12 +49,12 @@ class Experience extends Component {
           </div>
 
         </div>
-      );
+      )
     }
 
     return (
       <EditExperience handleEdit={this.handleEdit} experience={experience} />
-    );
+    )
   }
 }
 
@@ -65,12 +65,12 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     deleteExperience: payload => {
-      dispatch(deleteExperience(payload));
+      dispatch(deleteExperience(payload))
     }
-  };
-};
+  }
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Experience);
+)(Experience)

@@ -46,7 +46,7 @@ const user = (state = {experiences: [], education: [] }, action) => {
       return {
         ...state,
         experience: [action.payload, ...state.experience]
-      };
+      }
 
     case 'DELETE_EXPERIENCE':
       return {
@@ -67,10 +67,10 @@ const user = (state = {experiences: [], education: [] }, action) => {
             return {
               ...x, // spread the current experience values,
               ...action.payload // spread the new values. the values will overwrite values of the already spread ...x
-            };
+            }
           }
           // it was not the experience we edited
-          return x; // return it as it is, without changing
+          return x // return it as it is, without changing
         })
       }
 
@@ -78,7 +78,7 @@ const user = (state = {experiences: [], education: [] }, action) => {
       return {
         ...state,
         education: [action.payload, ...state.education]
-      };
+      }
 
     case 'DELETE_EDUCATION':
       return {
@@ -96,7 +96,7 @@ const user = (state = {experiences: [], education: [] }, action) => {
             return {
               ...x,
               ...action.payload
-            };
+            }
           }
           return x
         })
