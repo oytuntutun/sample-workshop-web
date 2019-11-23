@@ -55,9 +55,7 @@ class Header extends React.Component {
             <h4> {user.title ? user.title : ''} at {user.company ? user.company : 'no company'}</h4>
             <div className='toggle-click-area' onClick={()=> this.handleDarkmode()}>
               <div className={`toggle-container ${!darkmode ? 'slide-container' : ''}`}>
-
-                  <img src={trooper} className={`toggle-button ${darkmode ? 'toggle-button-dark' : 'toggle-button-light'}`} />
-
+                <img src={trooper} className={`toggle-button ${darkmode ? 'toggle-button-dark' : 'toggle-button-light'}`} />
               </div>
             </div>
 
