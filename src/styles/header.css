@@ -129,8 +129,8 @@
 /* Toggler start */
 .toggle-click-area {
   height: 40px;
-  width: 60px;
   cursor: pointer;
+  width: 45px
 }
 
 .toggle-container {

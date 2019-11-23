@@ -2,13 +2,11 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 import { logout, saveInformation } from '../../../store/actions/user/user'
-
 import MaterialIcon from 'material-icons-react'
 import { BasicInfo } from '../components'
 
-import trooper from '../../../assets/stormTrooperLight.png'
-
 import '../../../styles/header.css'
+import chooseYourSide from '../../../assets/stormTrooperLight.png'
 
 class Header extends React.Component {
   state = {
@@ -55,7 +53,7 @@ class Header extends React.Component {
             <h4> {user.title ? user.title : ''} at {user.company ? user.company : 'no company'}</h4>
             <div className='toggle-click-area' onClick={()=> this.handleDarkmode()}>
               <div className={`toggle-container ${!darkmode ? 'slide-container' : ''}`}>
-                <img src={trooper} className={`toggle-button ${darkmode ? 'toggle-button-dark' : 'toggle-button-light'}`} />
+                <img src={chooseYourSide} className={`toggle-button ${darkmode ? 'toggle-button-dark' : 'toggle-button-light'}`} />
               </div>
             </div>
 
