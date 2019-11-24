@@ -98,7 +98,7 @@ class AddExperience extends Component {
           >
           Background
         </span>
-          <MaterialIcon icon='post_add' size={20} id={darkmode ? 'light-icons' : ''} />
+          <MaterialIcon icon='post_add' size={24} color='gray' />
           <span>
             Experiences
           </span>

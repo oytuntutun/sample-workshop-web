@@ -40,13 +40,13 @@ class DashBoard extends React.Component {
           company
         } = experience
 
-        purepdf.setFontSize(12).text(`${currentlyWorking ? 'working' : 'worked'} as a ${title} at ${company} (${startedAt} - ${currentlyWorking ? 'still working' : endedAt })`, 10, 30 + (i+1) * 30)
-        purepdf.setFontSize(10).text(`${location}`, 10, ((i+1) * 30) + 35)
-        purepdf.setFontSize(10).text(`${description}`, 10, ((i+1) * 30) + 40)
+        purepdf.setFontSize(12).text(`${currentlyWorking ? 'working' : 'worked'} as a ${title} at ${company} (${startedAt} - ${currentlyWorking ? 'still working' : endedAt })`, 10, 20 + (i+1) * 30)
+        purepdf.setFontSize(10).text(`${location}`, 10, ((i+1) * 30) + 25)
+        purepdf.setFontSize(10).text(`${description}`, 10, ((i+1) * 30) + 30)
       })
 
       education.length &&
-      purepdf.setFontSize(14).text('Educations', 10, 155)
+      purepdf.setFontSize(14).text('Educations', 10, experience.length * 30 + 55)
 
       education.forEach((education, i) => {
         const {
@@ -59,11 +59,12 @@ class DashBoard extends React.Component {
           description,
           division
         } = education
-        purepdf.setFontSize(12).text(`${currentlyStudying ? 'Studying' : 'studied'} at ${school} (${startedAt} - ${currentlyStudying ? 'still studying' : endedAt })`, 10, 140 + (i+1) * 30)
-        purepdf.setFontSize(10).text(`${location}`, 10, 145 + (i+1) * 30)
-        purepdf.setFontSize(10).text(`${division}`, 10, 150 + (i+1) * 30)
-        purepdf.setFontSize(10).text(`${description}`, 10, 155 + (i+1) * 30)
-        purepdf.setFontSize(10).text(`${degree}`, 10, 160 + (i+1) * 30)
+
+        purepdf.setFontSize(12).text(`${currentlyStudying ? 'Studying' : 'studied'} at ${school} (${startedAt} - ${currentlyStudying ? 'still studying' : endedAt })`, 10, experience.length * 30 + (i+1) * 30 + 30)
+        purepdf.setFontSize(10).text(`${location}`, 10, experience.length * 30 + (i+1) * 30 + 35)
+        purepdf.setFontSize(10).text(`Division: ${division}`, 10, experience.length * 30 + (i+1) * 30 + 40)
+        purepdf.setFontSize(10).text(`${description}`, 10, experience.length * 30 + (i+1) * 30 + 45)
+        purepdf.setFontSize(10).text(`Degree: ${degree}`, 10, experience.length * 30 + (i+1) * 30 + 50)
       })
 
       purepdf.save(filename)

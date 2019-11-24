@@ -25,7 +25,6 @@ class Experience extends Component {
     const { experience, darkmode } = this.props
     const { currentlyWorking, endedAt } = experience
 
-    console.log(darkmode)
     if (!editing) {
       return (
         <div

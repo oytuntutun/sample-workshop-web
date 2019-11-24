@@ -12,7 +12,8 @@ class AddEducation extends React.Component {
     startedAt: '',
     endedAt: '',
     currentlyStudying: false,
-    location: ''
+    location: '',
+    description: '',
   }
 
   handleAddEducation = () => {
@@ -61,7 +62,7 @@ class AddEducation extends React.Component {
         <div
           className={`experience-wrapper ${darkmode ? 'dark-experience-wrapper' : ''}`}
         >
-          <MaterialIcon icon='post_add' size={20} id={darkmode ? 'light-icons' : ''} />
+          <MaterialIcon icon='post_add' size={24} color='gray' />
           <span>
             Educations
           </span>
