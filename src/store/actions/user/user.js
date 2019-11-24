@@ -8,7 +8,7 @@ export const login = payload => {
     // send request
     axios
       // .post('http://localhost:4000/users/login', payload) // payload contains email and password
-      .post('https://cors-anywhere.herokuapp.com/https://sample-workshop-server.herokuapp.com/users/login', payload) // payload contains email and password
+      .post('https://cors-anywhere.herokuapp.com/https://sample-workshop-server.herokuapp.com/users/login', payload)
       .then(res => {
         dispatch(loginSuccessful(res.data)) // res.data is user data
 
