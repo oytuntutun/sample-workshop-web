@@ -83,7 +83,7 @@
 }
 
 .buttons {
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .buttons:hover {
