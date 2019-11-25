@@ -45,10 +45,10 @@ class DashBoard extends React.Component {
 
         purepdf.setFontSize(12).text(`${currentlyWorking ? 'Working' : 'Worked'} as a ${title} at ${company.slice(0, 1).toUpperCase() + company.slice(1)} (${startedAt} - ${currentlyWorking ? 'still working' : endedAt })`, 10, 20 + (i+1) * 30)
         purepdf.setFontSize(10).text(`${location}`, 10, ((i+1) * 30) + 25)
-        purepdf.setFontSize(10).text(`${descriptionSplit.slice(0, 15).join(' ')}`, 10, ((i+1) * 30) + 30)
-        purepdf.setFontSize(10).text(`${descriptionSplit.slice(15, 30).join(' ')}`, 10, ((i+1) * 30) + 35)
-        purepdf.setFontSize(10).text(`${descriptionSplit.slice(30, 45).join(' ')}`, 10, ((i+1) * 30) + 40)
-        purepdf.setFontSize(10).text(`${descriptionSplit.slice(45, 60).join(' ')}`, 10, ((i+1) * 30) + 45)
+        purepdf.setFontSize(10).text(`${descriptionSplit.slice(0, 16).join(' ')}`, 10, ((i+1) * 30) + 30)
+        purepdf.setFontSize(10).text(`${descriptionSplit.slice(16, 32).join(' ')}`, 10, ((i+1) * 30) + 35)
+        purepdf.setFontSize(10).text(`${descriptionSplit.slice(32, 48).join(' ')}`, 10, ((i+1) * 30) + 40)
+        purepdf.setFontSize(10).text(`${descriptionSplit.slice(48, 64).join(' ')}`, 10, ((i+1) * 30) + 45)
       })
 
       education.length &&

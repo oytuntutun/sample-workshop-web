@@ -119,6 +119,7 @@
 
 .tips-wrapper {
   height:  50vh;
+  max-height: 50vh;
   width: 50vw;
   max-width: 400px;
   position: absolute;
@@ -129,13 +130,15 @@
   flex-direction: column;
   border-radius: 10px;
   z-index: 99999;
-  top: 60px;
+  top: 130px;
   box-shadow: 5px 5px 5px 5px #888888;
   background-color: white;
+  overflow: auto;
 }
 
 .dark-tips-wrapper {
   height:  50vh;
+  max-height: 50vh;
   width: 50vw;
   max-width: 400px;
   position: absolute;
@@ -146,9 +149,10 @@
   flex-direction: column;
   border-radius: 10px;
   z-index: 99999;
-  top: 60px;
+  top: 130px;
   box-shadow: 5px 5px 5px 5px #888888;
   background-color: gray;
+  overflow: auto;
 }
 
 #close-tips {
