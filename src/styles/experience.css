@@ -175,6 +175,9 @@
     padding: 3px !important
   }
 
+  .dark-tips-wrapper {
+    width: 90vw
+  }
 
   .button-container {
     min-width: unset
@@ -197,7 +200,6 @@
   .experience-content {
     margin: 0 10px 15px
   }
-
 
   #currentlyWorking {
   min-width: unset

@@ -179,6 +179,10 @@
     width: 100%
   }
 
+  .toggle-click-area {
+    margin: auto;
+  }
+
   #menu-icon {
     margin: auto;
   }
