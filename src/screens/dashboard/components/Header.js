@@ -50,7 +50,7 @@ class Header extends React.Component {
           <MaterialIcon icon='person' size={90} id='menu-icon' />
           <div>
             <h2>Welcome, {user.name ? user.name : 'onboard!'} {user.surname ? user.surname : ''}</h2>
-            <h4> {user.title ? user.title : ''} at {user.company ? user.company : 'no company'}</h4>
+            <h4> {user.title ? user.title : ''} {user.company ? 'at ' + user.company : ''}</h4>
             <div className='toggle-click-area' onClick={()=> this.handleDarkmode()}>
               <div className={`toggle-container ${!darkmode ? 'slide-container' : ''}`}>
                 <img src={chooseYourSide} className={`toggle-button ${darkmode ? 'toggle-button-dark' : 'toggle-button-light'}`} />

@@ -26,10 +26,11 @@ class DashBoard extends React.Component {
       let purepdf = new jsPDF({fontSize: 14})
 
       purepdf.setFontSize(16).text(`${name ? name : ''} ${surname ? surname : ''} resumé`, 10, 10)
-      purepdf.setFontSize(12).text(`${company ? 'is currently working in ' + company : ''}`, 10, 15)
+      purepdf.setFontSize(12).text(`${company ? 'is currently working in ' + company.slice(0, 1).toUpperCase() + company.slice(1) : ''}`, 10, 15)
       purepdf.setFontSize(14).text('Experiences', 10, 45)
 
       experience.forEach((experience, i) => {
+
         const {
           currentlyWorking,
           startedAt,
@@ -40,9 +41,14 @@ class DashBoard extends React.Component {
           company
         } = experience
 
-        purepdf.setFontSize(12).text(`${currentlyWorking ? 'working' : 'worked'} as a ${title} at ${company} (${startedAt} - ${currentlyWorking ? 'still working' : endedAt })`, 10, 20 + (i+1) * 30)
+        let descriptionSplit = description.split(' ')
+
+        purepdf.setFontSize(12).text(`${currentlyWorking ? 'Working' : 'Worked'} as a ${title} at ${company.slice(0, 1).toUpperCase() + company.slice(1)} (${startedAt} - ${currentlyWorking ? 'still working' : endedAt })`, 10, 20 + (i+1) * 30)
         purepdf.setFontSize(10).text(`${location}`, 10, ((i+1) * 30) + 25)
-        purepdf.setFontSize(10).text(`${description}`, 10, ((i+1) * 30) + 30)
+        purepdf.setFontSize(10).text(`${descriptionSplit.slice(0, 15).join(' ')}`, 10, ((i+1) * 30) + 30)
+        purepdf.setFontSize(10).text(`${descriptionSplit.slice(15, 30).join(' ')}`, 10, ((i+1) * 30) + 35)
+        purepdf.setFontSize(10).text(`${descriptionSplit.slice(30, 45).join(' ')}`, 10, ((i+1) * 30) + 40)
+        purepdf.setFontSize(10).text(`${descriptionSplit.slice(45, 60).join(' ')}`, 10, ((i+1) * 30) + 45)
       })
 
       education.length &&
@@ -60,11 +66,11 @@ class DashBoard extends React.Component {
           division
         } = education
 
-        purepdf.setFontSize(12).text(`${currentlyStudying ? 'Studying' : 'studied'} at ${school} (${startedAt} - ${currentlyStudying ? 'still studying' : endedAt })`, 10, experience.length * 30 + (i+1) * 30 + 30)
+        purepdf.setFontSize(12).text(`${currentlyStudying ? 'Studying' : 'Studied'} at ${school.slice(0,1).toUpperCase() + school.slice(1)} (${startedAt} - ${currentlyStudying ? 'still studying' : endedAt })`, 10, experience.length * 30 + (i+1) * 30 + 30)
         purepdf.setFontSize(10).text(`${location}`, 10, experience.length * 30 + (i+1) * 30 + 35)
         purepdf.setFontSize(10).text(`Division: ${division}`, 10, experience.length * 30 + (i+1) * 30 + 40)
-        purepdf.setFontSize(10).text(`${description}`, 10, experience.length * 30 + (i+1) * 30 + 45)
-        purepdf.setFontSize(10).text(`Degree: ${degree}`, 10, experience.length * 30 + (i+1) * 30 + 50)
+        purepdf.setFontSize(10).text(`Degree: ${degree}`, 10, experience.length * 30 + (i+1) * 30 + 45)
+        purepdf.setFontSize(10).text(`${description}`, 10, experience.length * 30 + (i+1) * 30 + 50)
       })
 
       purepdf.save(filename)

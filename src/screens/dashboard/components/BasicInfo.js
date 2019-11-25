@@ -5,13 +5,13 @@ import { saveInformation } from '../../../store/actions/user/user'
 
 class BasicInfo extends React.Component {
   state = {
-    name: '',
-    title: '',
-    company: '',
-    surname: '',
+    name: this.props.state.name,
+    title: this.props.state.title,
+    company: this.props.state.company,
+    surname: this.props.state.surname,
     notValid: false,
     photo: false,
-    darkmode: false
+    darkmode: this.props.state.darkmode
   }
 
   previewImage = (event) => {
@@ -42,7 +42,7 @@ class BasicInfo extends React.Component {
   }
 
   render () {
-    const { notValid, photo } = this.state
+    const { notValid, photo, name, surname, title, company } = this.state
     const { handleEdit } = this.props
     const { darkmode } = this.props.state
 
@@ -53,19 +53,39 @@ class BasicInfo extends React.Component {
         <h3>Fill in your basic information:</h3>
         <div className='basic-info-sections'>
           <span>what is your name?</span>
-          <input id='name' placeholder='enter your name' onChange={this.handleChange} />
+          <input
+            id='name'
+            placeholder='enter your name'
+            onChange={this.handleChange}
+            value={name}
+          />
         </div>
         <div className='basic-info-sections'>
           <span>what is your surname?</span>
-          <input id='surname' placeholder='enter your surname' onChange={this.handleChange} />
+          <input
+            id='surname'
+            placeholder='enter your surname'
+            value={surname}
+            onChange={this.handleChange}
+          />
         </div>
         <div className='basic-info-sections'>
           <span>Job Title?</span>
-          <input id='title' placeholder='enter your title' onChange={this.handleChange} />
+          <input
+            id='title'
+            placeholder='enter your title'
+            onChange={this.handleChange}
+            value={title}
+          />
         </div>
         <div className='basic-info-sections'>
           <span>Company?</span>
-          <input id='company' placeholder='enter your company name' onChange={this.handleChange} />
+          <input
+            id='company'
+            placeholder='enter your company name'
+            onChange={this.handleChange}
+            value={company}
+          />
         </div>
         <div className='basic-info-sections'>
           <input
