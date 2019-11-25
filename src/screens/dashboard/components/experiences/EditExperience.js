@@ -5,7 +5,7 @@ import { editExperience } from '../../../../store/actions/user/user'
 class EditExperience extends Component {
   state = {
     ...this.props.experience,
-    currentlyWorking: false
+    currentlyWorking: this.props.experience.currentlyWorking
   }
 
   handleChange = e => {

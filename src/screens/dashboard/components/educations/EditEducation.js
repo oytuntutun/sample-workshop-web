@@ -5,7 +5,7 @@ import { editEducation } from '../../../../store/actions/user/user'
 class EditEducation extends Component {
   state = {
     ...this.props.education,
-    currentlyStudying: false
+    currentlyStudying: this.props.education.currentlyStudying
   }
 
   handleChange = e => {
