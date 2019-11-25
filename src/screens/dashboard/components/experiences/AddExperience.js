@@ -83,7 +83,6 @@ class AddExperience extends Component {
   }
 
   handleTitleTips = (template) => {
-    const { title, selectedTips } = this.state
       this.setState({ title: template })
       this.closeTips()
   }
