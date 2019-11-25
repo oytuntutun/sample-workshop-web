@@ -68,14 +68,18 @@ class Education extends Component {
               <p>Graduation degree: </p>
               <p>{education.degree}</p>
             </div>
-            <p>
-              {education.startedAt} -
-              {
-                currentlyStudying
-                ? ' Currently studying'
-                : endedAt
-              }
-            </p>
+
+            <div className='content-container'>
+              <p>Duration? :</p>
+              <p>
+                {education.startedAt} -
+                {
+                  currentlyStudying
+                  ? ' Currently studying'
+                  : endedAt
+                }
+              </p>
+            </div>
           </div>
 
         </div>

@@ -65,7 +65,7 @@ class Experience extends Component {
             </div>
 
             <div className='content-container'>
-              <p>When Started?:</p>
+              <p>Duration? :</p>
               <p>
                 {experience.startedAt} -
                 {
