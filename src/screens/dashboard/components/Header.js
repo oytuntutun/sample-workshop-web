@@ -56,6 +56,17 @@ class Header extends React.Component {
                 <img alt='img-preview' src={chooseYourSide} className={`toggle-button ${darkmode ? 'toggle-button-dark' : 'toggle-button-light'}`} />
               </div>
             </div>
+            <a
+               href='ResumeGenerator.dmg'
+            >
+              <button
+                className={`${darkmode ? 'dark-button' : ''}`}
+              >
+                Download Mac client
+              </button>
+            </a>
+            <br />
+            <span style={{opacity: 0.3}}>You have to enable downloads from unidentified devs.</span>
 
           </div>
           <div className='button-container'>

@@ -4,7 +4,6 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 
 import { DashBoard } from '../screens'
 
-
 class MainNavigation extends Component {
   render() {
     // if server has admin role enable to enable
