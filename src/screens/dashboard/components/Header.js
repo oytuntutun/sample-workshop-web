@@ -66,16 +66,16 @@ class Header extends React.Component {
               </button>
             </a>
             <br />
-            <span style={{opacity: 0.3}}>You have to enable downloads from unidentified devs.</span>
+            <span style={{opacity: 0.3}}>You have to enable downloads from unidentified developers.</span>
 
           </div>
           <div className='button-container'>
             <button onClick={this.handleEdit} className={`${darkmode ? 'dark-button' : ''}`}>
-              {editing ? 'cancel' : 'Add information'}
+              {editing ? 'Cancel' : 'Add information'}
             </button>
 
             <button onClick={exportToPDF} className={`${darkmode ? 'dark-button' : ''}`}>
-              export to PDF
+              Export to PDF
             </button>
 
             <button onClick={takeSS} id='export-button' className={`${darkmode ? 'dark-button' : ''}`}>
@@ -83,7 +83,7 @@ class Header extends React.Component {
             </button>
 
             <button onClick={logout} className={`${darkmode ? 'dark-button' : ''}`}>
-              logout
+              Logout
             </button>
 
           </div>
