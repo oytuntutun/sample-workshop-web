@@ -15,7 +15,7 @@ const Educations = props => {
       <AddEducation />
       {(education &&
         education.length &&
-        education.map((education, index) => (
+        education.sort((a,b) => b.startedAt - a.startedAt).map((education, index) => (
           <Education key={index} education={education} darkmode={darkmode} />
         ))) || <noscript />}
 

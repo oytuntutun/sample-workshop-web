@@ -14,7 +14,7 @@ const Experiences = props => {
       <AddExperience />
       {(experience &&
         experience.length &&
-        experience.map((experience, index) => (
+        experience.sort((a,b) => b.startedAt - a.startedAt).map((experience, index) => (
           <Experience key={index} experience={experience} darkmode={darkmode} />
         ))) || <noscript />}
 
