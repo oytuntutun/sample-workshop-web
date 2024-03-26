@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^1.6.8",
     "html2canvas": "^1.0.0-rc.5",
     "jspdf": "^2.3.1",
     "material-icons-react": "^1.0.4",
